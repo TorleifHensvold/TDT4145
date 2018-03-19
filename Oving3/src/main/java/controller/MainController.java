@@ -1,4 +1,4 @@
-package tdt4145.gr125.Oving3;
+package controller;
 
 
 import java.net.URL;
