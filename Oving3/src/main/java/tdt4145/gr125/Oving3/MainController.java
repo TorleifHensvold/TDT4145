@@ -27,7 +27,7 @@ public class MainController extends Application
 		// Create the Pane
 		AnchorPane root = loader.load();
 		
-		//Create teh Scene
+		//Create the Scene
 		Scene scene = new Scene(root);
 		// Set the Scene to the Stage
 		primaryStage.setScene(scene);
