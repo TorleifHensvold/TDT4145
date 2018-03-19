@@ -19,7 +19,7 @@ public class MainController extends Application
 	public void start(Stage primaryStage) throws Exception 
 	{
 		// Create a path to the StartPane.fxml
-		URL startPanePath = getClass().getResource("StartPane.fxml"); 
+		URL startPanePath = getClass().getResource("Main.fxml"); 
 		
 		// Create the FXMLLoader with the URL of the StartPane.fxml
 		FXMLLoader loader = new FXMLLoader(startPanePath);
