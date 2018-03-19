@@ -1,36 +1,41 @@
 package tdt4145.gr125.Oving3;
 
-import java.io.IOException;
 
+import java.net.URL;
 import javafx.application.Application;
-import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
 
 
 public class MainController extends Application 
 {
 
-	public startScreenController startController;
-//	public registrationScreenController registrationController;
-    public MasterScreenController screenController;
-    public Stage stage;
+
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception 
 	{
-		//Stage is the root level object of the UI, screenController controls which scene is going to show on the stage.
-		this.stage = primaryStage;
-	    screenController = new MasterScreenController(new Scene(new AnchorPane()),stage);
-	    
-	  //Loading the FXML-file, injecting the screenController into the constructor of the controllers.
-	    FXMLLoader loader1 = new FXMLLoader(getClass().getResource("StartPane.fxml"));
-	    screenController.addScreen("LoginScreen",(Pane)loader1.load());
-	    startScreenController controller1 = loader1.getController();
-	    controller1.setScreenController(screenController);
+		// Create a path to the StartPane.fxml
+		URL startPanePath = getClass().getResource("StartPane.fxml"); 
+		
+		// Create the FXMLLoader with the URL of the StartPane.fxml
+		FXMLLoader loader = new FXMLLoader(startPanePath);
+		
+		// Create the Pane
+		AnchorPane root = loader.load();
+		
+		//Create teh Scene
+		Scene scene = new Scene(root);
+		// Set the Scene to the Stage
+		primaryStage.setScene(scene);
+		// Set the Title to the stage
+		primaryStage.setTitle("StartScreen");
+		// Display the Stage
+		primaryStage.show();
+		
 	}
 
 	public static void main(String[] args) {
