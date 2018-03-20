@@ -33,7 +33,7 @@ public class DatabaseService {
     
     
     
-    	//don't really know why we need this, but I guess it's if we want to create an instance of this class and not just use getDatasource()
+    	//if we want to create an instance of this class this method is called
     public static DatabaseService getInstance() throws SQLException{
         if (instance == null) {
             instance = new DatabaseService();
