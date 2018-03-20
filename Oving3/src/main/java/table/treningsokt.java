@@ -10,7 +10,8 @@ public class treningsokt
 	private int prestasjon;
 	private String notat;
 	
-	public treningsokt(int oktID, String dato, String tidspunkt, int varighet, int form, int prestasjon, String notat)
+	public treningsokt(int oktID, String dato, String tidspunkt, 
+			int varighet, int form, int prestasjon, String notat) throws Exception
 	{
 		setOktID(oktID);
 		setDato(dato);
@@ -60,7 +61,7 @@ public class treningsokt
 	
 	// --------------------------- Setters ------------------ //
 	
-	private void setOktID(int oktID) 
+	private void setOktID(int oktID)  throws Exception
 	{
 		if (checkInt(oktID, false))
 		{
@@ -68,7 +69,7 @@ public class treningsokt
 		}
 	}
 	
-	private void setDato(String dato) 
+	private void setDato(String dato)  throws Exception
 	{
 		if (checkString(dato, 30, false))
 		{
@@ -76,13 +77,13 @@ public class treningsokt
 		}
 	}
 	
-	private void setTidspunkt(String tidspunkt) 
+	private void setTidspunkt(String tidspunkt)  throws Exception
 	{
 		if (checkString(tidspunkt, 30, false))
 		this.tidspunkt = tidspunkt;
 	}
 	
-	public void setVarighet(int varighet) 
+	public void setVarighet(int varighet)  throws Exception
 	{
 		if (checkInt(oktID, false))
 		{
@@ -90,7 +91,7 @@ public class treningsokt
 		}
 	}
 	
-	private void setForm(int form) 
+	private void setForm(int form)  throws Exception
 	{
 		if (checkInt(oktID, true))
 		{
@@ -98,7 +99,7 @@ public class treningsokt
 		}
 	}
 	
-	private void setPrestasjon(int prestasjon) 
+	private void setPrestasjon(int prestasjon)  throws Exception
 	{
 		if (checkInt(oktID, true))
 		{
@@ -106,13 +107,13 @@ public class treningsokt
 		}
 	}
 	
-	private void setNotat(String notat) 
+	private void setNotat(String notat)  throws Exception
 	{
 		if (checkString(notat, 500, true))
 		this.notat = notat;
 	}
 	
-	private boolean checkInt(int tall, boolean nullAllowed)
+	private boolean checkInt(int tall, boolean nullAllowed) throws Exception
 	{
 		if (!nullAllowed)
 		{
@@ -142,7 +143,7 @@ public class treningsokt
 		}
 	}
 	
-	private boolean checkString(String tekst, int lengde, boolean nullAllowed)
+	private boolean checkString(String tekst, int lengde, boolean nullAllowed) throws Exception
 	{
 		if (!nullAllowed)	// If we don't allow NULL, we check the length.
 		{
