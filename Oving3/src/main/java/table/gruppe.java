@@ -5,7 +5,7 @@ public class gruppe
 	private int GruppeID;
 	private String TypeOvelse;
 	
-	public void gruppe(int GruppeID, String TypeOvelse) throws Exception
+	public gruppe(int GruppeID, String TypeOvelse) throws Exception
 	{
 		setGruppeID(GruppeID);
 		setTypeOvelse(TypeOvelse);
