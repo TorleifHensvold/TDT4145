@@ -30,5 +30,16 @@ public class gruppe
 		this.GruppeID = gruppeID;
 	}
 	
+	public int getGruppeID()
+	{
+		return this.GruppeID;
+	}
+	
+	public String TypeOvelse()
+	{
+		return this.TypeOvelse;
+	}
+	
+	
 	
 }
