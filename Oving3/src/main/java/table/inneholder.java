@@ -28,7 +28,7 @@ public class inneholder
 		{
 			throw new IllegalArgumentException("The number is too high to be an integer in java.");
 		}
-		// TODO: Create else if (oktID does not exist) then Exeption
+		// TODO: Create else if (oktID does not exist) then Exception
 		else
 		{
 		this.OktID = oktID;
@@ -41,7 +41,7 @@ public class inneholder
 		{
 			throw new IllegalArgumentException("The number is too high to be an integer in java.");
 		}
-		// TODO: Create else if (oktID does not exist) then Exeption
+		// TODO: Create else if (oktID does not exist) then Exception
 		else
 		{
 		this.OvelsesID = ovelsesID;
