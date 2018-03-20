@@ -1,2 +1,26 @@
 Yo
 testing
+
+--- Elisabeth ---
+om noen har litt tid en gang kunne det vært veldig fint om me gjorde sånn at 
+det lå typ 3 entries i hver av tabellene i databasen for å gjøre det lettere 
+og teste ting underveis 🙂 sku prøve å kjøre en av de litt større spørringene 
+men må legge inn insert funksjoner for sånn alle klassene først da og da blir
+ det utsatt til i mårå eller torsdag
+ --- end ---
+ 
+--- Torleif --- 
+ For å legge inn ting i tabellene uten å måtte ha laget insert statements o.l. 
+ i programmet kan man logge inn på https://mysqladmin.stud.ntnu.no/
+ med brukernavnet og passordet fra  DataBaseSettings.java 
+ --- end ---
+ 
+Elisabeth
+har forsøkt og lage en funksjon for å hente ut alle øvelsene i en gruppe, men
+ har ikkje fått testa at den funker fordi eg ikkje har fått lagt inn noe i alle
+  tabellene enda, men har lagt inn select statmenten og den klager inntil 
+  videre ikkje på noe verken i funksjonen eller i try catch i App.java når jeg 
+  kjørte den (fikk bare ikke noe ut) - skal eg venta med å pushe ?
+  
+  
+  

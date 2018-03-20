@@ -19,34 +19,38 @@ public class App
 		System.out.println("java version: " + System.getProperty("java.version"));
 		System.out.println("javafx.version: " + System.getProperty("javafx.version"));
 
-				try {
-		String navn = "Pull-up Bar";
-		Connection con= DatabaseService.getDatasource().getConnection();
-        PreparedStatement prepstatement = con.prepareStatement("SELECT * from apparat WHERE Navn=?;");
-        prepstatement.setString(1, navn);
-        ResultSet rs = prepstatement.executeQuery();
+		try 
+		{
+			System.out.println("SELECT * from apparat WHERE Navn=?;");
+			String navn = "Pull-up Bar";
+			Connection con= DatabaseService.getDatasource().getConnection();
+			PreparedStatement prepstatement = con.prepareStatement("SELECT * from apparat WHERE Navn=?;");
+			prepstatement.setString(1, navn);
+			ResultSet rs = prepstatement.executeQuery();
         
-        ResultSetMetaData meta = rs.getMetaData();
-        int col = meta.getColumnCount();
+			ResultSetMetaData meta = rs.getMetaData();
+			int col = meta.getColumnCount();
         
-        if(col != 2) {
-        	throw new Exception();
-        }
+			if(col != 2) 
+			{
+				throw new Exception();
+			}
         
-        Apparat ap = new Apparat();
-        rs.next();
-        ap.setNavn(navn);
-        ap.setBeskrivelse(rs.getString(2));
+			Apparat ap = new Apparat();
+			rs.next();
+			ap.setNavn(navn);
+			ap.setBeskrivelse(rs.getString(2));
                
         
-        rs.close();
-        con.close();
+			rs.close();
+			con.close();
 
-        System.out.println(ap);
-        System.out.println(ap.getNavn() + " " + ap.getBeskrivelse());
+			System.out.println(ap);
+			System.out.println(ap.getNavn() + " " + ap.getBeskrivelse());
 		}
 		catch (Exception e)
-		{System.out.println(e);
+		{
+			System.out.println(e);
 		}
 	/*	try {
 			Apparat ap = new Apparat("Stol", "Til å sitte på.");
@@ -55,7 +59,9 @@ public class App
 			// TODO: handle exception
 		}*/
 				
-		try {
+		try 
+		{
+			System.out.println("DELETE FROM apparat WHERE Navn=?;");
 			String Navn = "Stol";
 			Connection con= DatabaseService.getDatasource().getConnection();
 	        PreparedStatement prepstatement = con.prepareStatement("DELETE FROM apparat WHERE Navn=?;");
@@ -67,12 +73,15 @@ public class App
 	        //prepstatement.executeQuery();
 	        //prepstatement.execute();
 	        con.close();
+	        System.out.println("boolean: " + result);
 		} catch (Exception e) {
 			System.out.println(e);
 			// TODO: handle exception
 		}
+		
 		try 
 		{
+			System.out.println("SELECT * FROM apparat");
 			Connection conn = DatabaseService.getDatasource().getConnection();
 			PreparedStatement prepState = conn.prepareStatement("SELECT * FROM apparat");
 			ResultSet rs = prepState.executeQuery();
@@ -96,6 +105,8 @@ public class App
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
+		
+		System.out.println("Done");
 	}
 }
