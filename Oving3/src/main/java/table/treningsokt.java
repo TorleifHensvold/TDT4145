@@ -173,6 +173,6 @@ public class treningsokt
 		}
 	}
 	
-	
+	// TODO: Create empty constructor, and setters to add an existing instance from SQL server
 	
 }
