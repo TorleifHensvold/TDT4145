@@ -68,7 +68,7 @@ public class treningsokt
 		}
 	}
 	
-	public void setDato(String dato) 
+	private void setDato(String dato) 
 	{
 		if (checkString(dato, 30, false))
 		{
@@ -76,8 +76,9 @@ public class treningsokt
 		}
 	}
 	
-	public void setTidspunkt(String tidspunkt) 
+	private void setTidspunkt(String tidspunkt) 
 	{
+		if (checkString(tidspunkt, 30, false))
 		this.tidspunkt = tidspunkt;
 	}
 	
@@ -89,7 +90,7 @@ public class treningsokt
 		}
 	}
 	
-	public void setForm(int form) 
+	private void setForm(int form) 
 	{
 		if (checkInt(oktID))
 		{
@@ -97,7 +98,7 @@ public class treningsokt
 		}
 	}
 	
-	public void setPrestasjon(int prestasjon) 
+	private void setPrestasjon(int prestasjon) 
 	{
 		if (checkInt(oktID))
 		{
@@ -105,8 +106,9 @@ public class treningsokt
 		}
 	}
 	
-	public void setNotat(String notat) 
+	private void setNotat(String notat) 
 	{
+		if (checkString(notat, 500, true))
 		this.notat = notat;
 	}
 	
