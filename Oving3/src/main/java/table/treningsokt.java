@@ -1,6 +1,6 @@
 package table;
 
-public class Treningsokt 
+public class treningsokt 
 {
 	private int oktID;
 	private String dato;
@@ -10,7 +10,7 @@ public class Treningsokt
 	private int prestasjon;
 	private String notat;
 	
-	public Treningsokt(int oktID, String dato, String tidspunkt, 
+	public treningsokt(int oktID, String dato, String tidspunkt, 
 			int varighet, int form, int prestasjon, String notat) throws Exception
 	{
 		setOktID(oktID);
@@ -172,5 +172,7 @@ public class Treningsokt
 			}
 		}
 	}
+	
+	// TODO: Create empty constructor, and setters to add an existing instance from SQL server
 	
 }
