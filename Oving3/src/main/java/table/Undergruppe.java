@@ -1,6 +1,6 @@
 package table;
 
-public class undergruppe {
+public class Undergruppe {
 	private int GruppeID;
 	private int UnderGruppeID;
 	
