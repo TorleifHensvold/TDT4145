@@ -12,7 +12,7 @@ public class Gruppe
 	}
 	
 	public Gruppe() {
-		
+		// TODO: Add empty constructor
 	}
 
 	private void setTypeOvelse(String typeOvelse) throws Exception
@@ -34,6 +34,14 @@ public class Gruppe
 		this.GruppeID = gruppeID;
 	}
 	
+	public void databaseSetsGruppeID(int gruppeID) {
+		this.GruppeID = gruppeID;
+	}
+	
+	public void databaseSetsTypeOvelse(String typeOvelse) {
+		this.TypeOvelse = typeOvelse;
+	}
+	
 	public int getGruppeID()
 	{
 		return this.GruppeID;
@@ -44,7 +52,7 @@ public class Gruppe
 		return this.TypeOvelse;
 	}
 	
-	// TODO: Add empty constructor
+
 	// TODO: Add way to instantiate class from existing SQL database.
 	
 }
