@@ -1,10 +1,10 @@
 package table;
 
-public class utenapparat {
+public class Utenapparat {
 	private int OvelsesID; //primary key and foreign key to ovelse
 	private String Beskrivelse;
 	
-	public utenapparat(int OvelsesID, String Beskrivelse) throws Exception{
+	public Utenapparat(int OvelsesID, String Beskrivelse) throws Exception{
 		setID(OvelsesID);
 		setBeskrivelse(Beskrivelse);
 	}
