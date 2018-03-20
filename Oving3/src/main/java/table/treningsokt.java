@@ -2,80 +2,97 @@ package table;
 
 public class treningsokt 
 {
-	private int OktID;
-	private String Dato;
-	private String Tidspunkt;
-	private int Varighet;
-	private int Form;
-	private int Prestasjon;
-	private String Notat;
+	private int oktID;
+	private String dato;
+	private String tidspunkt;
+	private int varighet;
+	private int form;
+	private int prestasjon;
+	private String notat;
+	
+	public treningsokt(int oktID, String dato, String tidspunkt, int varighet, int form, int prestasjon, String notat)
+	{
+		setOktID(oktID);
+		setDato(dato);
+		setTidspunkt(tidspunkt);
+		setVarighet(varighet);
+		setForm(form);
+		setPrestasjon(prestasjon);
+		setNotat(notat);
+	}
 	
 	// ---------------------- Getters ------------------------------- //
 	
 	public int getOktID() 
 	{
-		return this.OktID;
+		return this.oktID;
 	}
 	
 	public String getDato() 
 	{
-		return this.Dato;
+		return this.dato;
 	}
 	
 	public String getTidspunkt() 
 	{
-		return this.Tidspunkt;
+		return this.tidspunkt;
 	}
 	
 	public int getVarighet() 
 	{
-		return this.Varighet;
+		return this.varighet;
 	}
 	
 	public int getForm() 
 	{
-		return this.Form;
+		return this.form;
 	}
 	
 	public int getPrestasjon() 
 	{
-		return this.Prestasjon;
+		return this.prestasjon;
 	}
 	
 	public String getNotat() 
 	{
-		return this.Notat;
+		return this.notat;
 	}
 	
 	// --------------------------- Setters ------------------ //
 	
-	public void setOktID(int oktID) 
+	private void setOktID(int oktID) 
 	{
-		OktID = oktID;
+		this.oktID = oktID;
 	}
+	
 	public void setDato(String dato) 
 	{
-		Dato = dato;
+		this.dato = dato;
 	}
+	
 	public void setTidspunkt(String tidspunkt) 
 	{
-		Tidspunkt = tidspunkt;
+		this.tidspunkt = tidspunkt;
 	}
+	
 	public void setVarighet(int varighet) 
 	{
-		Varighet = varighet;
+		this.varighet = varighet;
 	}
+	
 	public void setForm(int form) 
 	{
-		Form = form;
+		this.form = form;
 	}
+	
 	public void setPrestasjon(int prestasjon) 
 	{
-		Prestasjon = prestasjon;
+		this.prestasjon = prestasjon;
 	}
+	
 	public void setNotat(String notat) 
 	{
-		Notat = notat;
+		this.notat = notat;
 	}
 	
 	
