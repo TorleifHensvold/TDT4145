@@ -62,7 +62,10 @@ public class treningsokt
 	
 	private void setOktID(int oktID) 
 	{
-		this.oktID = oktID;
+		if (checkInt(oktID))
+		{
+			this.oktID = oktID;
+		}
 	}
 	
 	public void setDato(String dato) 
@@ -77,17 +80,26 @@ public class treningsokt
 	
 	public void setVarighet(int varighet) 
 	{
-		this.varighet = varighet;
+		if (checkInt(oktID))
+		{
+			this.varighet = varighet;
+		}
 	}
 	
 	public void setForm(int form) 
 	{
-		this.form = form;
+		if (checkInt(oktID))
+		{
+			this.form = form;
+		}
 	}
 	
 	public void setPrestasjon(int prestasjon) 
 	{
-		this.prestasjon = prestasjon;
+		if (checkInt(oktID))
+		{
+			this.prestasjon = prestasjon;
+		}
 	}
 	
 	public void setNotat(String notat) 
@@ -107,5 +119,34 @@ public class treningsokt
 		}
 	}
 	
+	private boolean checkString(String tekst, int lengde, boolean nullAllowed)
+	{
+		if (!nullAllowed)	// If we don't allow NULL, we check the length.
+		{
+			if (tekst.length() > lengde)	// If the length is longer than allowed, throw illegalargument.
+			{
+				throw new IllegalArgumentException("The length of the text was too long, it must be less than " + lengde + ".");
+			}
+			else
+			{
+				return true;
+			}
+		}
+		else		// null is implicitly allowed.
+		{
+			if (tekst == null)
+			{
+				return true;
+			}
+			else if (tekst.length() > lengde)
+			{
+				throw new IllegalArgumentException("The length of the text was too long, it must be less than " + lengde + ".");
+			}
+			else
+			{
+				return true;
+			}
+		}
+	}
 	
 }
