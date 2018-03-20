@@ -28,9 +28,9 @@ public class App
 			{
 				System.out.printf(meta.getColumnName(i) + ", ");
 			}
+			System.out.println();
 			while (rs.next()) 
 			{
-				System.out.println();
 				String row = "";
 				for (int i = 1; i <= columnCount; i++) 
 				{
