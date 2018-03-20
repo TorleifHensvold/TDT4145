@@ -14,11 +14,11 @@ import javafx.stage.Stage;
 public class MainController extends Application 
 {
 	
-	@FXML public void initialize()
+/*	@FXML public void initialize()
 	{
 		System.out.println("Application has started.");
 	}
-	
+*/	
 	@Override
 	public void start(Stage primaryStage) throws Exception 
 	{
