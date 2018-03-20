@@ -1,6 +1,6 @@
 package table;
 
-public class treningsokt 
+public class Treningsokt 
 {
 	private int oktID;
 	private String dato;
@@ -10,7 +10,7 @@ public class treningsokt
 	private int prestasjon;
 	private String notat;
 	
-	public treningsokt(int oktID, String dato, String tidspunkt, 
+	public Treningsokt(int oktID, String dato, String tidspunkt, 
 			int varighet, int form, int prestasjon, String notat) throws Exception
 	{
 		setOktID(oktID);
