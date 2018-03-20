@@ -40,6 +40,7 @@ public class gruppe
 		return this.TypeOvelse;
 	}
 	
-	
+	// TODO: Add empty constructor
+	// TODO: Add way to instantiate class from existing SQL database.
 	
 }
