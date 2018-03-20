@@ -37,7 +37,10 @@ public class ovelse {
 
 
 	public void setNavn(String navn) throws Exception{
-		if(navn.length()<=50) {
+		if (navn ==null) {
+			throw new IllegalArgumentException("Can't be null");
+		}
+		else if(navn.length()<=50) {
 			this.Navn = navn;
 		}
 		else {

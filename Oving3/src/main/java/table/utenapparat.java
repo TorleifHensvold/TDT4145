@@ -12,7 +12,7 @@ public class utenapparat {
 	public void setID(int OvelsesID) throws Exception{
 		if (OvelsesID <= 100000000) {
 			this.OvelsesID = OvelsesID;
-		} else {
+		} else {//TODO: Create else if (OvelsesID does not exist) then Exception 
 			throw new IllegalArgumentException("the int is too long");
 		}
 	}

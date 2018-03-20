@@ -1,0 +1,45 @@
+#Insertions 
+insert into apparat			VALUE ("Navn", "Beskrivelse") 
+insert into ovelse 			VALUE (OvelsesID, "Navn")
+insert into apparatovelse 	VALUE (OvelsesID, AntallKilo, AntallSet, Apparat)
+insert into utenapparat 	VALUE (OvelsesID, "Beksrivelse")
+insert into treningsokt 	VALUE (OktID, "Dato", "Tidspunkt", Varighet, Form, Prestasjon, "Notat")
+insert into inneholder 		VALUE (OktID, OvelsesID)
+insert into gruppe			VALUE (GruppeID, "TypeOvelse")
+
+
+
+#Henter ut informasjon om n sist gjennomførte treningsøkter med notater, n spesifisert av bruker.
+select *
+from treningsokt
+order by dato + 0 DESC limit n
+
+
+
+#Resultatlogg i gitt tidsintervall spesifisert av brukeren (hvis utenapparat)
+select treningsokt.Dato, utenaparat.beskrivelse
+from	(	(	(treningsokt join inneholder on treningsokt.OktID=inneholder.OktID)
+			join ovelse on inneholder.OvelsesID = ovelse.OvelsesID)
+		join utenapparat on utenapparat.OvelsesID = ovelse.OvelsesID)
+where	ovelse.Navn = "..." and treningsokt.Dato <= "high" and treningsokt.Dato >= "low"
+
+
+
+#Resultatlogg i gitt tidsintervall spesifisert av brukeren (hvis apparat)
+select treningsokt.Dato, apparatOvelse.AntallKilo, ApparatOvelse.AntallSet
+from	(	(	(treningsokt join inneholder on treningsokt.OktID=inneholder.OktID)
+			join ovelse on inneholder.OvelsesID = ovelse.OvelsesID)
+		join apparat on apparat.OvelsesID = ovelse.OvelsesID)
+where	ovelse.Navn = "..." and treningsokt.Dato <= "high" and treningsokt.Dato >= "low"
+
+
+
+#Finner øvelser i samme gruppe
+select ovelse.Navn, ovelse.OvelsesID
+from	(	(	(	(gruppe join tilhorergruppe on gruppe.GruppeID = tilhorergruppe.GruppeID)
+				join ovelse on tilhorergruppe.OvelsesID = ovelse.OvelsesID)
+			natural join utenapparat)
+union	(	(	(	(gruppe natural join tilhorergruppe)
+				natural join ovelse)
+			natural join apparatovelse))
+where gruppe.Navn = "..."
