@@ -62,7 +62,7 @@ public class treningsokt
 	
 	private void setOktID(int oktID) 
 	{
-		if (checkInt(oktID))
+		if (checkInt(oktID, false))
 		{
 			this.oktID = oktID;
 		}
@@ -84,7 +84,7 @@ public class treningsokt
 	
 	public void setVarighet(int varighet) 
 	{
-		if (checkInt(oktID))
+		if (checkInt(oktID, false))
 		{
 			this.varighet = varighet;
 		}
@@ -92,7 +92,7 @@ public class treningsokt
 	
 	private void setForm(int form) 
 	{
-		if (checkInt(oktID))
+		if (checkInt(oktID, true))
 		{
 			this.form = form;
 		}
@@ -100,7 +100,7 @@ public class treningsokt
 	
 	private void setPrestasjon(int prestasjon) 
 	{
-		if (checkInt(oktID))
+		if (checkInt(oktID, true))
 		{
 			this.prestasjon = prestasjon;
 		}
@@ -112,15 +112,33 @@ public class treningsokt
 		this.notat = notat;
 	}
 	
-	private boolean checkInt(int tall)
+	private boolean checkInt(int tall, boolean nullAllowed)
 	{
-		if (tall > 1000000000)
+		if (!nullAllowed)
 		{
-			throw new IllegalArgumentException("The number was too long to be an integer in Java.");
+			if (tall > 1000000000)
+			{
+				throw new IllegalArgumentException("The number was too long to be an integer in Java.");
+			}
+			else 
+			{
+				return true;
+			}
 		}
-		else 
+		else
 		{
-			return true;
+			if (tall == 0)
+			{
+				return true;
+			}
+			else if (tall > 1000000000)
+			{
+				throw new IllegalArgumentException("The number was too long to be an integer in Java.");
+			}
+			else
+			{
+				return true;
+			}
 		}
 	}
 	
