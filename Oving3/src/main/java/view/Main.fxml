@@ -4,38 +4,38 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="500.0" minWidth="700.0" xmlns="http://javafx.com/javafx/8.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane minHeight="500.0" minWidth="700.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TabPane prefHeight="500.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab closable="false" text="Search">
             <content>
-            	<fx:include fx:id = "tab1" source = "tab/Tab1.fxml" />
+            	<fx:include fx:id="tab1" source="tab/Tab1.fxml" />
             </content>
           </Tab>
           <Tab closable="false" text="Untitled Tab 2">
             <content>
-            	<fx:include fx:id = "tab2" source = "tab/Tab2.fxml" />
+            	<fx:include fx:id="tab2" source="tab/Tab2.fxml" />
             </content>
           </Tab>
           <Tab closable="false" text="Untitled Tab 3">
             <content>
-   				<fx:include fx:id = "tab3" source = "tab/Tab3.fxml" />
+   				<fx:include fx:id="tab3" source="tab/Tab3.fxml" />
             </content>
           </Tab>
           <Tab closable="false" text="Untitled Tab 4">
             <content>
-       			<fx:include fx:id = "tab4" source = "tab/Tab4.fxml" />
+       			<fx:include fx:id="tab4" source="tab/Tab4.fxml" />
             </content>
           </Tab>
           <Tab closable="false" text="Untitled Tab 5">
             <content>
-        		<fx:include fx:id = "tab5" source = "tab/Tab5.fxml" />
+        		<fx:include fx:id="tab5" source="tab/Tab5.fxml" />
             </content>
           </Tab>
           <Tab closable="false" text="Untitled Tab 6">
             <content>
-              <fx:include fx:id = "tab6" source = "tab/Tab6.fxml" />
+              <fx:include fx:id="tab6" source="tab/Tab6.fxml" />
             </content>
           </Tab>
         </tabs>
