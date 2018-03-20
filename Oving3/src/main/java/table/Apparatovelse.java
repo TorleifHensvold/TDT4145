@@ -1,13 +1,13 @@
 package table;
 
-public class apparatovelse {
+public class Apparatovelse {
 	private int OvelsesID; // primary key and foreign key to ovelse
 	private int AntallKilo;
 	private int AntallSett;
 	private String Apparat;
 	
 	//TODO: create a constructor that can create an instance with only getting the variables that has to be not null
-	public apparatovelse(int ovelsesID, int antallKilo, int antallSett, String apparat) throws Exception{
+	public Apparatovelse(int ovelsesID, int antallKilo, int antallSett, String apparat) throws Exception{
 		setOvelsesID(ovelsesID);
 		setAntallKilo(antallKilo);
 		setAntallSett(antallSett);
