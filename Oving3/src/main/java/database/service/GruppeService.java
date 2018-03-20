@@ -7,9 +7,7 @@ import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 import java.util.List;
 
-import table.Apparat;
 import table.Gruppe;
-import table.Ovelse;
 
 public class GruppeService {
 	
