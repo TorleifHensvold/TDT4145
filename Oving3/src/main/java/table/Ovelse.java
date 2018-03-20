@@ -1,12 +1,12 @@
 package table;
 
-public class ovelse {
+public class Ovelse {
 	private int OvelsesID;
 	private String Navn;
 	
 	
 	
-	public ovelse(int ovelsesID, String navn) throws Exception{
+	public Ovelse(int ovelsesID, String navn) throws Exception{
 		setOvelsesID(ovelsesID);
 		setNavn(navn);
 	}
