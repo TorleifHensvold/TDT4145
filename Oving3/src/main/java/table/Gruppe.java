@@ -10,6 +10,10 @@ public class Gruppe
 		setGruppeID(GruppeID);
 		setTypeOvelse(TypeOvelse);
 	}
+	
+	public Gruppe() {
+		
+	}
 
 	private void setTypeOvelse(String typeOvelse) throws Exception
 	{
