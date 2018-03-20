@@ -2,6 +2,9 @@ package database.service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 
 import table.Apparat;
 
@@ -12,10 +15,10 @@ public class ApparatService {
 	//fjerne apparater
 	//hente ut beskrivelsen til ett apparat
 	
-	public boolean NewApparat(Apparat apparat) {
+	public static boolean NewApparat(Apparat apparat) {
 		try {
 			Connection conn = DatabaseService.getDatasource().getConnection();
-			PreparedStatement prepStatement = conn.prepareStatement("INSERT INTO Apparat (Navn, Beskrivelse) VALUES (?,?);");
+			PreparedStatement prepStatement = conn.prepareStatement("INSERT INTO apparat (Navn, Beskrivelse) VALUES (?,?);");
 			prepStatement.setString(1, apparat.getNavn());
 			prepStatement.setString(2, apparat.getBeskrivelse());
 			
@@ -28,5 +31,41 @@ public class ApparatService {
 			e.printStackTrace();
 			return false;
 		}
+	}
+	
+	public static Apparat getApparatByNavn(String navn) throws Exception {
+		Connection con= DatabaseService.getDatasource().getConnection();
+        PreparedStatement prepstatement = con.prepareStatement("SELECT * from apparat WHERE Navn=?;");
+        prepstatement.setString(1, navn);
+        ResultSet rs = prepstatement.executeQuery();
+        
+        ResultSetMetaData meta = rs.getMetaData();
+        int col = meta.getColumnCount();
+        
+        if(col != 2) {
+        	throw new Exception();
+        }
+        
+        Apparat ap = new Apparat();
+        
+        rs.next();
+        
+        ap.setNavn(navn);
+        ap.setBeskrivelse(rs.getString(2));
+               
+        
+        rs.close();
+        con.close();
+
+        return ap;
+	}
+	
+	public static boolean deleteApparatByNavn(String Navn) throws SQLException {
+		Connection con= DatabaseService.getDatasource().getConnection();
+        PreparedStatement prepstatement = con.prepareStatement("DELETE FROM apparat WHERE Navn=?;");
+        prepstatement.setString(1, Navn);
+        boolean result =  prepstatement.execute();
+        con.close();
+        return result;
 	}
 }
