@@ -8,6 +8,18 @@ public class Apparat {
 		setNavn(navn);
 		setBeskrivelse(beskrivelse);
 	}
+	
+	public Apparat() {
+		
+	}
+	
+	public void databaseSetsName(String Navn) {
+		this.Navn = Navn;
+	}
+	
+	public void databaseSetsBeskrivelse(String Beskrivelse) {
+		this.Beskrivelse = Beskrivelse;
+	}
 
 	//TODO create a method or a way of validating that the apparat doesn't already exist
 	public void setNavn(String navn) throws Exception{
