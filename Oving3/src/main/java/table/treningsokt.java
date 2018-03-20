@@ -95,5 +95,17 @@ public class treningsokt
 		this.notat = notat;
 	}
 	
+	private boolean checkInt(int tall)
+	{
+		if (tall > 1000000000)
+		{
+			throw new IllegalArgumentException("The number was too long to be an integer in Java.");
+		}
+		else 
+		{
+			return true;
+		}
+	}
+	
 	
 }
