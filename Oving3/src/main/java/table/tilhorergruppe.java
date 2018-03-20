@@ -1,6 +1,6 @@
 package table;
 
 public class tilhorergruppe {
-	public int GruppeID;
-	public int OverlsesID; 
+	public int GruppeID; //primary key to gruppe
+	public int OverlsesID; //foreign key to gruppe
 }
