@@ -1,11 +1,11 @@
 package table;
 
-public class gruppe 
+public class Gruppe 
 {
 	private int GruppeID;
 	private String TypeOvelse;
 	
-	public gruppe(int GruppeID, String TypeOvelse) throws Exception
+	public Gruppe(int GruppeID, String TypeOvelse) throws Exception
 	{
 		setGruppeID(GruppeID);
 		setTypeOvelse(TypeOvelse);
