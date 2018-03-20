@@ -70,7 +70,10 @@ public class treningsokt
 	
 	public void setDato(String dato) 
 	{
-		this.dato = dato;
+		if (checkString(dato, 30, false))
+		{
+			this.dato = dato;
+		}
 	}
 	
 	public void setTidspunkt(String tidspunkt) 
