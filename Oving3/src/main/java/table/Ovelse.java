@@ -1,8 +1,8 @@
 package table;
 
 public class Ovelse {
-	private int OvelsesID;
-	private String Navn;
+	private int ovelsesID;
+	private String navn;
 	
 	
 	
@@ -11,17 +11,31 @@ public class Ovelse {
 		setNavn(navn);
 	}
 
+	public Ovelse()
+	{
+		
+	}
+	
+	public void databaseSetOvelsesID(int ovelsesID)
+	{
+		this.ovelsesID = ovelsesID;
+	}
+	
+	public void databaseSetNavn(String navn)
+	{
+		this.navn = navn;
+	}
 
 
 	public int getOvelsesID() {
-		return OvelsesID;
+		return this.ovelsesID;
 	}
 
 
 
 	public void setOvelsesID(int ovelsesID) throws Exception{
 		if (ovelsesID <= 1000000000) {
-			this.OvelsesID=ovelsesID;
+			this.ovelsesID=ovelsesID;
 		}
 		else {
 			throw new IllegalArgumentException("the int is too long");
@@ -31,7 +45,7 @@ public class Ovelse {
 
 
 	public String getNavn() {
-		return Navn;
+		return this.navn;
 	}
 
 
@@ -41,7 +55,7 @@ public class Ovelse {
 			throw new IllegalArgumentException("Can't be null");
 		}
 		else if(navn.length()<=50) {
-			this.Navn = navn;
+			this.navn = navn;
 		}
 		else {
 			throw new IllegalArgumentException("The name is too long");
