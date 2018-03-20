@@ -1,8 +1,8 @@
 package table;
 
 public class apparatovelse {
-	public int ovelsesID;
-	public int antallKilo;
-	public int antallSett;
-	public String apparat;
+	public int OvelsesID;
+	public int AntallKilo;
+	public int AntallSett;
+	public String Apparat;
 }

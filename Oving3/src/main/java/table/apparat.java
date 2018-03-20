@@ -1,6 +1,6 @@
 package table;
 
 public class apparat {
-	public String navn;
-	public String beskrivelse;
+	public String Navn;
+	public String Beskrivelse;
 }

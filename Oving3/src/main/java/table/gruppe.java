@@ -1,6 +1,6 @@
 package table;
 
 public class gruppe {
-	public int gruppeID;
-	public String typeOvelse; 
+	public int GruppeID;
+	public String TypeOvelse; 
 }

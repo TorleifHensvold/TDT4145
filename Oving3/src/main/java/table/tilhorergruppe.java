@@ -1,6 +1,6 @@
 package table;
 
 public class tilhorergruppe {
-	public int gruppeID;
-	public int overlsesID; 
+	public int GruppeID;
+	public int OverlsesID; 
 }
