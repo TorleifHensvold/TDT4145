@@ -2,6 +2,7 @@ package controller;
 
 
 import java.net.URL;
+import javafx.fxml.FXML;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,9 +13,12 @@ import javafx.stage.Stage;
 
 public class MainController extends Application 
 {
-
-
 	
+/*	@FXML public void initialize()
+	{
+		System.out.println("Application has started.");
+	}
+*/	
 	@Override
 	public void start(Stage primaryStage) throws Exception 
 	{
