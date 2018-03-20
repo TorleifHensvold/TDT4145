@@ -1,6 +1,36 @@
 package table;
 
 public class apparat {
-	public String Navn;
-	public String Beskrivelse;
+	private String Navn;
+	private String Beskrivelse;
+	
+	public apparat(String navn, String beskrivelse) throws Exception{
+		setNavn(navn);
+		setBeskrivelse(beskrivelse);
+	}
+
+	//TODO create a method or a way of validating that the apparat doesn't already exist
+	public void setNavn(String navn) throws Exception{
+		if (navn.length() <= 30) {
+			this.Navn = navn;
+		}
+		else {
+			throw new IllegalArgumentException("the name is too long");
+		}
+	}
+
+	public void setBeskrivelse(String beskrivelse) {
+		if (beskrivelse.length() <= 300) {
+			this.Beskrivelse = beskrivelse;
+		}
+		else {
+			throw new IllegalArgumentException("the description is too long");
+		}
+	}
+	public String getNavn() {
+		return this.Navn;
+	}
+	public String getBeskrivelse() {
+		return this.Beskrivelse;
+	}
 }
