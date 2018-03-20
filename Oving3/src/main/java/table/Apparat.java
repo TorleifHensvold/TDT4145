@@ -1,10 +1,10 @@
 package table;
 
-public class apparat {
+public class Apparat {
 	private String Navn;
 	private String Beskrivelse;
 	
-	public apparat(String navn, String beskrivelse) throws Exception{
+	public Apparat(String navn, String beskrivelse) throws Exception{
 		setNavn(navn);
 		setBeskrivelse(beskrivelse);
 	}
