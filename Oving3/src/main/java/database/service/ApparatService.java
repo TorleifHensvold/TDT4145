@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import table.Apparat;
-import table.Ovelse;
 
 
 public class ApparatService {
