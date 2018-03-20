@@ -22,7 +22,7 @@ public class inneholder
 		return OvelsesID;
 	}
 	
-	public void setOktID(int oktID) throws Exception
+	private void setOktID(int oktID) throws Exception
 	{
 		if (oktID > 1000000000)
 		{
@@ -35,7 +35,7 @@ public class inneholder
 		}
 	}
 	
-	public void setOvelsesID(int ovelsesID) throws Exception
+	private void setOvelsesID(int ovelsesID) throws Exception
 	{
 		if (ovelsesID > 1000000000)
 		{
