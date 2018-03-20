@@ -35,7 +35,7 @@ public class Gruppe
 		return this.GruppeID;
 	}
 	
-	public String TypeOvelse()
+	public String getTypeOvelse()
 	{
 		return this.TypeOvelse;
 	}
