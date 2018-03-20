@@ -13,7 +13,7 @@ public class Apparat {
 		
 	}
 	
-	public void databaseSetsName(String Navn) {
+	public void databaseSetsNavn(String Navn) {
 		this.Navn = Navn;
 	}
 	

@@ -5,8 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import table.Apparat;
+import table.Ovelse;
 
 
 public class ApparatService {
@@ -61,11 +64,45 @@ public class ApparatService {
 	}
 	
 	public static boolean deleteApparatByNavn(String Navn) throws SQLException {
-		Connection con= DatabaseService.getDatasource().getConnection();
-        PreparedStatement prepstatement = con.prepareStatement("DELETE FROM apparat WHERE Navn=?;");
+		Connection conn= DatabaseService.getDatasource().getConnection();
+        PreparedStatement prepstatement = conn.prepareStatement("DELETE FROM apparat WHERE Navn=?;");
         prepstatement.setString(1, Navn);
         boolean result =  prepstatement.execute();
-        con.close();
+        conn.close();
         return result;
+	}
+	
+	public static List<Apparat> getAllApparat() throws Exception{
+		Connection conn = DatabaseService.getDatasource().getConnection();
+		PreparedStatement prepstatement = conn.prepareStatement("SELECT * FROM apparat");
+		ResultSet rs = prepstatement.executeQuery();
+        
+        ResultSetMetaData meta = rs.getMetaData();
+        int col = meta.getColumnCount();
+        
+        if(col != 2) {
+        	throw new Exception();
+        }
+        
+        List<Apparat> listOfApparat = convertResultSetToList(rs);
+               
+        rs.close();
+        conn.close();
+
+        return listOfApparat;
+	}
+	
+	private static List<Apparat> convertResultSetToList(ResultSet rs) throws Exception
+	{
+		List<Apparat> listOfOvelse = new ArrayList<Apparat>();
+		
+		while (rs.next())
+		{
+			Apparat ap = new Apparat();
+			ap.databaseSetsNavn(rs.getString(1));
+			ap.databaseSetsBeskrivelse(rs.getString(2));
+			listOfOvelse.add(ap);
+		}
+		return listOfOvelse;
 	}
 }
