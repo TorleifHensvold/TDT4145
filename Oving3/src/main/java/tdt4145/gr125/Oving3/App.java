@@ -47,10 +47,27 @@ public class App
 		catch (Exception e)
 		{System.out.println(e);
 		}
-		try {
+	/*	try {
 			Apparat ap = new Apparat("Stol", "Til å sitte på.");
 			ApparatService.NewApparat(ap);
 		} catch (Exception e) {
+			// TODO: handle exception
+		}*/
+				
+		try {
+			String Navn = "Stol";
+			Connection con= DatabaseService.getDatasource().getConnection();
+	        PreparedStatement prepstatement = con.prepareStatement("DELETE FROM apparat WHERE Navn=?;");
+	        prepstatement.setString(1, Navn);
+	        boolean result =  prepstatement.execute();
+            //conn.close();
+            //return result;
+	        
+	        //prepstatement.executeQuery();
+	        //prepstatement.execute();
+	        con.close();
+		} catch (Exception e) {
+			System.out.println(e);
 			// TODO: handle exception
 		}
 		try 
