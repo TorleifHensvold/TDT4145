@@ -10,6 +10,7 @@ import database.DataBaseSettings;
 public class DatabaseService {
 	
 	private static DatabaseService instance = null;
+	@SuppressWarnings("unused")
 	private MysqlDataSource datasource;
 	
 	/*this is private because we don't need to create an instance of this class, 
