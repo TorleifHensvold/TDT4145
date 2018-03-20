@@ -1,7 +1,6 @@
 package database.service;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
