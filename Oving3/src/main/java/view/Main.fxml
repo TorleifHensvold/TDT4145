@@ -10,28 +10,28 @@
         <tabs>
           <Tab closable="false" text="Untitled Tab 1">
             <content>
-            	<fx:include source = "tab/Tab1.fxml" />
+            	<fx:include fx:id = "Tab1" source = "tab/Tab1.fxml" />
              <!--   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />-->
             </content>
           </Tab>
           <Tab closable="false" text="Untitled Tab 2">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            	<fx:include fx:id = "Tab2" source = "tab/Tab2.fxml" />
             </content>
           </Tab>
           <Tab closable="false" text="Untitled Tab 3">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+   				<fx:include fx:id = "Tab3" source = "tab/Tab3.fxml" />
             </content>
           </Tab>
           <Tab closable="false" text="Untitled Tab 4">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+       			<fx:include fx:id = "Tab4" source = "tab/Tab4.fxml" />
             </content>
           </Tab>
           <Tab closable="false" text="Untitled Tab 5">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        		<fx:include fx:id = "Tab5" source = "tab/Tab5.fxml" />
             </content>
           </Tab>
           <Tab closable="false" text="Untitled Tab 6">
