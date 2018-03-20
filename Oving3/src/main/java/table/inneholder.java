@@ -2,8 +2,8 @@ package table;
 
 public class inneholder 
 {
-	public int OktID; 	//primary key and foreign key to treningsokt
-	public int OvelsesID;	//primary key and foreign key to ovelse
+	private int OktID; 	//primary key and foreign key to treningsokt
+	private int OvelsesID;	//primary key and foreign key to ovelse
 	
 	
 	public inneholder(int OktID, int OvelsesID) throws Exception
