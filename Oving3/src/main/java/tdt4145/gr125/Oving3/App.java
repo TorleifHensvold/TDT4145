@@ -46,19 +46,89 @@ public class App
 			con.close();
 
 			System.out.println(ap);
-			System.out.println(ap.getNavn() + " " + ap.getBeskrivelse());
+			System.out.println("data i table: " + ap);
+			System.out.println(ap.getNavn() + ": " + ap.getBeskrivelse());
+			System.out.println();
 		}
 		catch (Exception e)
 		{
 			System.out.println(e);
 		}
-	/*	try {
+		
+		try 
+		{
+			System.out.println("SELECT * from apparat;");
+			String navn = "Pull-up Bar";
+			Connection con= DatabaseService.getDatasource().getConnection();
+			PreparedStatement prepstatement = con.prepareStatement("SELECT * from apparat;");
+			ResultSet rs = prepstatement.executeQuery();
+        
+			ResultSetMetaData meta = rs.getMetaData();
+			int col = meta.getColumnCount();
+        
+			if(col != 2) 
+			{
+				throw new Exception();
+			}
+               
+			while (rs.next())
+			{
+				String output = "";
+				output += rs.getString(1) + ": " + rs.getString(2);
+				System.out.println(output);
+			}
+			rs.close();
+			con.close();
+
+			
+			System.out.println();
+		}
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		
+		try {
 			Apparat ap = new Apparat("Stol", "Til å sitte på.");
 			ApparatService.NewApparat(ap);
 		} catch (Exception e) {
-			// TODO: handle exception
-		}*/
-				
+			System.out.println(e);
+		}
+		
+		try 
+		{
+			System.out.println("SELECT * from apparat;");
+			String navn = "Pull-up Bar";
+			Connection con= DatabaseService.getDatasource().getConnection();
+			PreparedStatement prepstatement = con.prepareStatement("SELECT * from apparat;");
+			ResultSet rs = prepstatement.executeQuery();
+        
+			ResultSetMetaData meta = rs.getMetaData();
+			int col = meta.getColumnCount();
+        
+			if(col != 2) 
+			{
+				throw new Exception();
+			}
+               
+			while (rs.next())
+			{
+				String output = "";
+				output += rs.getString(1) + ": " + rs.getString(2);
+				System.out.println(output);
+			}
+			rs.close();
+			con.close();
+
+			
+			System.out.println();
+		}
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		
+		
 		try 
 		{
 			System.out.println("DELETE FROM apparat WHERE Navn=?;");
@@ -74,38 +144,45 @@ public class App
 	        //prepstatement.execute();
 	        con.close();
 	        System.out.println("boolean: " + result);
+	        System.out.println();
 		} catch (Exception e) {
 			System.out.println(e);
 			// TODO: handle exception
 		}
 		
+		
 		try 
 		{
-			System.out.println("SELECT * FROM apparat");
-			Connection conn = DatabaseService.getDatasource().getConnection();
-			PreparedStatement prepState = conn.prepareStatement("SELECT * FROM apparat");
-			ResultSet rs = prepState.executeQuery();
+			System.out.println("SELECT * from apparat;");
+			String navn = "Pull-up Bar";
+			Connection con= DatabaseService.getDatasource().getConnection();
+			PreparedStatement prepstatement = con.prepareStatement("SELECT * from apparat;");
+			ResultSet rs = prepstatement.executeQuery();
+        
 			ResultSetMetaData meta = rs.getMetaData();
-			int columnCount = meta.getColumnCount();
-			for (int i = 1; i <= columnCount; i++) 
+			int col = meta.getColumnCount();
+        
+			if(col != 2) 
 			{
-				System.out.printf(meta.getColumnName(i) + ", ");
+				throw new Exception();
 			}
-			System.out.println();
-			while (rs.next()) 
+               
+			while (rs.next())
 			{
-				String row = "";
-				for (int i = 1; i <= columnCount; i++) 
-				{
-				row += rs.getString(i) + ", ";	
-				}
-				System.out.println(row);
+				String output = "";
+				output += rs.getString(1) + ": " + rs.getString(2);
+				System.out.println(output);
 			}
+			rs.close();
+			con.close();
 
-		} catch (Exception e) {
-			e.printStackTrace();
+			
+			System.out.println();
 		}
-		
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
 		
 		System.out.println("Done");
 	}
