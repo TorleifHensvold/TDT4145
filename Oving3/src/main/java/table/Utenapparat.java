@@ -1,40 +1,42 @@
 package table;
 
-public class Utenapparat extends Ovelse {
-//	private int OvelsesID; //primary key and foreign key to ovelse
+public class Utenapparat extends Ovelse
+{
+	// private int OvelsesID; //primary key and foreign key to ovelse
 	private String beskrivelse;
-	
-	public Utenapparat(int ovelsesID, String beskrivelse) throws Exception{
+
+	public Utenapparat(int ovelsesID, String beskrivelse) throws Exception
+	{
 		super.setOvelsesID(ovelsesID);// setID(OvelsesID);
 		setBeskrivelse(beskrivelse);
 	}
-	
+
 	/*
-	public void setID(int OvelsesID) throws Exception{
-		if (OvelsesID <= 100000000) {
-			this.OvelsesID = OvelsesID;
-		} else {//TODO: Create else if (OvelsesID does not exist) then Exception 
-			throw new IllegalArgumentException("the int is too long");
-		}
-	}
-	*/
-	
-	public void setBeskrivelse(String Beskrivelse) {
-		if (Beskrivelse.length() <= 300) {
+	 * public void setID(int OvelsesID) throws Exception{ if (OvelsesID <=
+	 * 100000000) { this.OvelsesID = OvelsesID; } else {//TODO: Create else if
+	 * (OvelsesID does not exist) then Exception throw new
+	 * IllegalArgumentException("the int is too long"); } }
+	 */
+
+	public void setBeskrivelse(String Beskrivelse)
+	{
+		if (Beskrivelse.length() <= 300)
+		{
 			this.beskrivelse = Beskrivelse;
-		} else {
+		}
+		else
+		{
 			throw new IllegalArgumentException("this string is too long");
 		}
 	}
-	
+
 	/*
-	public int getOvelsesID() {
-		return OvelsesID;
-	}
-	*/
-	
-	public String getBeskrivelse() {
+	 * public int getOvelsesID() { return OvelsesID; }
+	 */
+
+	public String getBeskrivelse()
+	{
 		return beskrivelse;
 	}
-	
+
 }
