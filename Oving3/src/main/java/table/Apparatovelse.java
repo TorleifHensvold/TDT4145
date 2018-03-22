@@ -70,6 +70,21 @@ public class Apparatovelse {
 			throw new IllegalArgumentException("the string is too long");
 		}
 	}
+	
+	public void databaseSetOvelsesID(int ovelsesID) {
+		this.OvelsesID = ovelsesID;
+	}
+	
+	public void databaseSetAntallSett(int antallSett) throws Exception{
+		this.AntallSett = antallSett;
+	}
 
+	public void databaseSetAntallKilo(int antallKilo) throws Exception{
+		this.AntallKilo=antallKilo;
+	}
+	
+	public void databaseSetApparat(String apparat) throws Exception{
+		this.Apparat = apparat;
+	}
 	
 }
