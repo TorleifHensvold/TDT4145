@@ -6,6 +6,7 @@ import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 import java.util.List;
 
+import table.Apparat;
 import table.Apparatovelse;
 import table.Ovelse;
 
@@ -37,7 +38,8 @@ public class ApparatovelseService {
 			aov.databaseSetOvelsesID(rs.getInt(1));
 			aov.databaseSetAntallKilo(rs.getInt(2));
 			aov.databaseSetAntallSett(rs.getInt(3));
-			//aov.databaseSetApparat();
+			Apparat ap = ApparatService.getApparatByNavn(rs.getString(4));
+			aov.databaseSetApparat(ap);
 			
 			listOfApparatovelse.add(aov);
 		}
