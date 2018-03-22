@@ -4,23 +4,24 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 import table.Gruppe;
+import table.Undergruppe;
 
 public class UnderGruppeService {
 	
 	
 	
-	public static boolean createRelation(Gruppe gruppe, Gruppe undergruppe) {
+	public static boolean createRelation(Undergruppe gruppe) {
 		try {
 			Connection conn = DatabaseService.getDatasource().getConnection();
-			if(GruppeService.getGruppeByID(gruppe.getGruppeID())!=gruppe) {
+			if(GruppeService.getGruppeByID(gruppe.getGruppeID()).getGruppeID()!=gruppe.getGruppeID()) {
 				return false;
 			}
-			if(GruppeService.getGruppeByID(undergruppe.getGruppeID())!=undergruppe) {
+			if(GruppeService.getGruppeByID(gruppe.getUnderGruppeID()).getGruppeID()!=gruppe.getUnderGruppeID()) {
 				return false;
 			}
 			PreparedStatement prepStatement = conn.prepareStatement("INSERT INTO undergruppe (GruppeID, UnderGruppeID) VALUES (?,?);");
 			prepStatement.setInt(1, gruppe.getGruppeID());
-			prepStatement.setInt(2, undergruppe.getGruppeID());
+			prepStatement.setInt(2, gruppe.getUnderGruppeID());
 			
 			boolean success = prepStatement.execute();
 			
