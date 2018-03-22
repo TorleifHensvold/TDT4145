@@ -62,5 +62,22 @@ public class GruppeService {
 		return listOfGruppe;
 	}
 	
+	public static Gruppe getGruppeByID(int ID)throws Exception {
+		
+			Connection conn = DatabaseService.getDatasource().getConnection();
+		
+		PreparedStatement prepState = conn.prepareStatement("SELECT * FROM gruppe WHERE GruppeID=?");
+		prepState.setInt(1, ID);
+		ResultSet rs = prepState.executeQuery();
+		Gruppe group = null;
+		if(rs.next()) {
+			group = new Gruppe();
+			group.databaseSetsGruppeID(rs.getInt(1));
+			group.databaseSetsTypeOvelse(rs.getString(2));	
+		}
+		return group;
+			
+	}
+	
 	
 }
