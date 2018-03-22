@@ -77,7 +77,7 @@ public class GruppeService {
 	
 	public static Gruppe getGruppeByID(int ID)throws Exception {
 		
-			Connection conn = DatabaseService.getDatasource().getConnection();
+		Connection conn = DatabaseService.getDatasource().getConnection();
 		
 		PreparedStatement prepState = conn.prepareStatement("SELECT * FROM gruppe WHERE GruppeID=?");
 		prepState.setInt(1, ID);
