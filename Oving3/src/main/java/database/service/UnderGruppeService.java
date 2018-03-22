@@ -34,4 +34,11 @@ public class UnderGruppeService {
 			return false;
 		}
 	}
+	/*
+	public static ArrayList<Gruppe> getUnderGruppe(Gruppe gruppe) throws Exception{
+		Connection conn = DatabaseService.getDatasource().getConnection();
+		PreparedStatement prepState = conn.prepareStatement("SELECT * FROM gruppe WHERE GruppeID=?");
+		prepState.setInt(1, gruppe.getGruppeID());
+		
+	}*/
 }
