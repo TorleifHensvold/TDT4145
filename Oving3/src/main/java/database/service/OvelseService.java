@@ -68,4 +68,21 @@ public class OvelseService
 		int rows = prepState.executeUpdate();
 		System.out.println(rows + " rows updated.");
 	}
+	
+	public static List<Ovelse> getOvelserByStatement(PreparedStatement prepState) throws Exception
+	{
+		ResultSet rs = prepState.executeQuery();
+		ResultSetMetaData meta = rs.getMetaData();
+		
+		int col = meta.getColumnCount();
+		if (col != 2)
+		{
+			throw new Exception("The number of columns in the table from MySQL was not 2");
+		}
+		List<Ovelse> listOfOvelse = convertResultSetToList(rs);
+		
+		rs.close();
+		return listOfOvelse;
+		
+	}
 }
