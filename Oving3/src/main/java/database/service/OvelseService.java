@@ -58,4 +58,14 @@ public class OvelseService
 		}
 		return ovelse;
 	}
+	
+	public static void addOvelse(Ovelse ovelse) throws SQLException
+	{
+		Connection conn = DatabaseService.getDatasource().getConnection();
+		PreparedStatement prepState = conn.prepareStatement("INSERT INTO ovelse VALUE (?,?);");
+		prepState.setInt(1, ovelse.getOvelsesID());
+		prepState.setString(2, ovelse.getNavn());
+		int rows = prepState.executeUpdate();
+		System.out.println(rows + " rows updated.");
+	}
 }
