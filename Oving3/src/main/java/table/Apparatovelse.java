@@ -7,7 +7,7 @@ public class Apparatovelse {
 	private Apparat Apparat;
 	
 	//TODO: create a constructor that can create an instance with only getting the variables that has to be not null
-	public Apparatovelse(int ovelsesID, int antallKilo, int antallSett, String apparat) throws Exception{
+	public Apparatovelse(int ovelsesID, int antallKilo, int antallSett, Apparat apparat) throws Exception{
 		setOvelsesID(ovelsesID);
 		setAntallKilo(antallKilo);
 		setAntallSett(antallSett);
