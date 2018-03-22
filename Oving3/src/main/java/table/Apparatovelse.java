@@ -4,7 +4,7 @@ public class Apparatovelse {
 	private int OvelsesID; // primary key and foreign key to ovelse
 	private int AntallKilo;
 	private int AntallSett;
-	private String Apparat;
+	private Apparat Apparat;
 	
 	//TODO: create a constructor that can create an instance with only getting the variables that has to be not null
 	public Apparatovelse(int ovelsesID, int antallKilo, int antallSett, String apparat) throws Exception{
@@ -58,17 +58,12 @@ public class Apparatovelse {
 		}
 	}
 	
-	public String getApparat() {
+	public Apparat getApparat() {
 		return Apparat;
 	}
 	
-	public void setApparat(String apparat) throws Exception{
-		if (apparat.length()<= 30) {
-			this.Apparat = apparat;
-		}
-		else {
-			throw new IllegalArgumentException("the string is too long");
-		}
+	public void setApparat(Apparat apparat) throws Exception{
+		this.Apparat = apparat;
 	}
 	
 	public void databaseSetOvelsesID(int ovelsesID) {
@@ -83,7 +78,7 @@ public class Apparatovelse {
 		this.AntallKilo=antallKilo;
 	}
 	
-	public void databaseSetApparat(String apparat) throws Exception{
+	public void databaseSetApparat(Apparat apparat) throws Exception{
 		this.Apparat = apparat;
 	}
 	
