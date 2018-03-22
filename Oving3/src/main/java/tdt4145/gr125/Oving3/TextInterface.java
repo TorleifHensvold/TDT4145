@@ -44,7 +44,7 @@ public class TextInterface
 			
 			break;
 		case 1000:
-			
+			mainMenu();
 			break;
 		}
 	}
