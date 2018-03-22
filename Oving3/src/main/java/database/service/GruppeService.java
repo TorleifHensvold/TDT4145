@@ -8,8 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import table.Gruppe;
+import table.Ovelse;
 
 public class GruppeService {
+	
+	public static List<Ovelse> includedInGruppe(int GruppeID) throws Exception{
+		Connection conn = DatabaseService.getDatasource().getConnection();
+		PreparedStatement prepStatement = conn.prepareStatement("SELECT * FROM (((gruppe NATURAL JOIN tilhorergruppe) NATURAL JOIN ovelse) NATURAL JOIN (apparatovelse UNION utenapparat)) WHERE gruppe.GruppeID=?;");
+		prepStatement.setInt(1, GruppeID);
+		
+		List<Ovelse> listOfOvelse = OvelseService.getOvelserByStatement(prepStatement);
+		
+		conn.close();
+        
+        return listOfOvelse;
+	}
 	
 	public static boolean nyGruppe(Gruppe gruppe) {
 		try {
