@@ -1,12 +1,12 @@
 package table;
 
-public class Apparatovelse {
-	private int OvelsesID; // primary key and foreign key to ovelse
+public class Apparatovelse extends Ovelse {
+//	private int OvelsesID; // primary key and foreign key to ovelse
 	private int AntallKilo;
 	private int AntallSett;
 	private Apparat Apparat;
 	
-	//TODO: create a constructor that can create an instance with only getting the variables that has to be not null
+	//DONE: create a constructor that can create an instance with only getting the variables that has to be not null
 	public Apparatovelse(int ovelsesID, int antallKilo, int antallSett, Apparat apparat) throws Exception{
 		setOvelsesID(ovelsesID);
 		setAntallKilo(antallKilo);
@@ -17,6 +17,7 @@ public class Apparatovelse {
 	public Apparatovelse() {
 	}
 	
+	/*
 	public int getOvelsesID() {
 		return OvelsesID;
 	}
@@ -30,7 +31,7 @@ public class Apparatovelse {
 			throw new IllegalArgumentException("the int is too long");
 		}
 	}
-	
+	*/
 	public int getAntallKilo() {
 		return AntallKilo;
 	}
@@ -66,9 +67,11 @@ public class Apparatovelse {
 		this.Apparat = apparat;
 	}
 	
+	/*
 	public void databaseSetOvelsesID(int ovelsesID) {
 		this.OvelsesID = ovelsesID;
 	}
+	*/
 	
 	public void databaseSetAntallSett(int antallSett) throws Exception{
 		this.AntallSett = antallSett;

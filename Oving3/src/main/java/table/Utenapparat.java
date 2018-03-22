@@ -1,14 +1,15 @@
 package table;
 
-public class Utenapparat {
-	private int OvelsesID; //primary key and foreign key to ovelse
-	private String Beskrivelse;
+public class Utenapparat extends Ovelse {
+//	private int OvelsesID; //primary key and foreign key to ovelse
+	private String beskrivelse;
 	
-	public Utenapparat(int OvelsesID, String Beskrivelse) throws Exception{
-		setID(OvelsesID);
-		setBeskrivelse(Beskrivelse);
+	public Utenapparat(int ovelsesID, String beskrivelse) throws Exception{
+		super.setOvelsesID(ovelsesID);// setID(OvelsesID);
+		setBeskrivelse(beskrivelse);
 	}
 	
+	/*
 	public void setID(int OvelsesID) throws Exception{
 		if (OvelsesID <= 100000000) {
 			this.OvelsesID = OvelsesID;
@@ -16,20 +17,24 @@ public class Utenapparat {
 			throw new IllegalArgumentException("the int is too long");
 		}
 	}
+	*/
 	
 	public void setBeskrivelse(String Beskrivelse) {
 		if (Beskrivelse.length() <= 300) {
-			this.Beskrivelse = Beskrivelse;
+			this.beskrivelse = Beskrivelse;
 		} else {
 			throw new IllegalArgumentException("this string is too long");
 		}
 	}
 	
+	/*
 	public int getOvelsesID() {
 		return OvelsesID;
 	}
+	*/
 	
 	public String getBeskrivelse() {
-		return Beskrivelse;
+		return beskrivelse;
 	}
+	
 }
