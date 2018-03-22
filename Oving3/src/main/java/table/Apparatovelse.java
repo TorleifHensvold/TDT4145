@@ -14,6 +14,9 @@ public class Apparatovelse {
 		setApparat(apparat);
 	}
 	
+	public Apparatovelse() {
+	}
+	
 	public int getOvelsesID() {
 		return OvelsesID;
 	}
