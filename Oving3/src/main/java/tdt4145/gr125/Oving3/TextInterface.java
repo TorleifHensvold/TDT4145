@@ -17,11 +17,14 @@ public class TextInterface
 	{
 		System.out.println("This is the main screen. Here you will be able to choose different options.");
 		System.out.println("");
+		mainMenu();
 	}
 
 	public void mainMenu()
 	{
+		System.out.println("into mainMenu");
 		int menuSelected = getMenuSelection(5);
+		System.out.println("Out of getMenuSelection");
 		
 		switch (menuSelected)
 		{
@@ -51,7 +54,11 @@ public class TextInterface
 	
 	public int getMenuSelection(int maxNumber)
 	{
+		System.out.println("Into getMenuSelection");
 		printMainMenu();
+		System.out.println("Out of printMainMenu");
+		String oppfordre = "\nType in a number given in brackets in the menu, from 0 to " + Integer.toString(maxNumber);
+		System.out.println(oppfordre);
 		int selection = 1000;
 		try
 		{
@@ -66,11 +73,14 @@ public class TextInterface
 					if (choice <= maxNumber && choice >= 0)
 					{
 						selection = choice;
+						gotNumber = true;
 					}
 				}
 				catch (Exception e)
 				{
+					System.out.println("Error:");
 					System.out.println(e);
+					System.out.println(oppfordre);
 				}
 			}
 			scan.close();
@@ -84,17 +94,20 @@ public class TextInterface
 	
 	public void printMainMenu()
 	{
+		System.out.println("Into printMainMenu");
 		System.out.println("------MENU------");
 		for (int i = 0; i < menu.length; i++)
 		{
 			System.out.println("[" + i + "] " + menu[i]);
 		}
+		return;
 	}
 
 	public static void main(String[] args)
 	{
 		TextInterface annt = new TextInterface();
-		annt.printMainMenu();
+		annt.mainScreen();
+		//annt.printMainMenu();
 	}
 
 }
