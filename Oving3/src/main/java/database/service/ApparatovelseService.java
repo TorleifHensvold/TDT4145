@@ -37,7 +37,7 @@ public class ApparatovelseService {
 			aov.databaseSetOvelsesID(rs.getInt(1));
 			aov.databaseSetAntallKilo(rs.getInt(2));
 			aov.databaseSetAntallSett(rs.getInt(3));
-			aov.databaseSetApparat(rs.getString(4));
+			//aov.databaseSetApparat();
 			
 			listOfApparatovelse.add(aov);
 		}
