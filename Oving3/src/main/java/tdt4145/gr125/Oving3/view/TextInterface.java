@@ -1,16 +1,17 @@
-package tdt4145.gr125.Oving3;
+package tdt4145.gr125.Oving3.view;
 
 import java.util.Scanner;
 
 public class TextInterface
 {
 	private String[] menu = 
-		{"Exit", 	// 0 
-		"",			// 1
-		"",			// 2
-		"",			// 3
-		"",			// 4
-		"",			// 5
+		{"Exit", 							// 0 
+		"Registrer Apparat",				// 1
+		"Registrer Øvelse",					// 2
+		"Registrer Treningsøkt",			// 3
+		"Lag Øvelsesgruppe",				// 4
+		"Lag Undergruppe",					// 5
+		""
 		};
 	
 	public void mainScreen()
@@ -105,8 +106,12 @@ public class TextInterface
 
 	public static void main(String[] args)
 	{
+		// Create a new instance of TextInterface.
 		TextInterface annt = new TextInterface();
+		// Start it at the correct screen.
 		annt.mainScreen();
+		
+		
 		//annt.printMainMenu();
 	}
 
