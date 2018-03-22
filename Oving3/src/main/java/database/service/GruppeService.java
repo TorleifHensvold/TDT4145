@@ -62,7 +62,7 @@ public class GruppeService {
 		return listOfGruppe;
 	}
 	
-	private static Gruppe getGruppeByID(int ID)throws Exception {
+	public static Gruppe getGruppeByID(int ID)throws Exception {
 		
 			Connection conn = DatabaseService.getDatasource().getConnection();
 		
