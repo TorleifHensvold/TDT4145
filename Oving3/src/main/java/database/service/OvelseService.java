@@ -1,6 +1,5 @@
 package database.service;
 
-import java.sql.Connection;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,5 +41,21 @@ public class OvelseService
 			listOfOvelse.add(ov);
 		}
 		return listOfOvelse;
+	}
+	
+	public static Ovelse getOvelseByID(int ID) throws SQLException
+	{
+		Connection conn = DatabaseService.getDatasource().getConnection();
+		PreparedStatement prepState = conn.prepareStatement("SELECT * FROM ovelse WHERE OvelseID = ?;");
+		prepState.setInt(1, ID);
+		ResultSet rs = prepState.executeQuery();
+		Ovelse ovelse = null;
+		if (rs.next())
+		{
+			ovelse = new Ovelse();
+			ovelse.databaseSetOvelsesID(rs.getInt(1));
+			ovelse.databaseSetNavn(rs.getString(2));
+		}
+		return ovelse;
 	}
 }
