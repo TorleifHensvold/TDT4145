@@ -39,27 +39,27 @@ public class TextInterface
 
 			switch (menuSelected)
 			{
-			case 0:
+			case 0:	// Exit
 				System.out.println("Hade.");
 				System.exit(0);
-			case 1:
+			case 1: // Registrer Apparat
 				ApparatScreen apScreen1 = new ApparatScreen(scan, this);
 				apScreen1.apparatMenu(1);
 				System.out.println("out of apparatMenu");
 				break;
-			case 2:
+			case 2:	// Registrer øvelse
 
 				break;
-			case 3:
+			case 3:	// Registrer Treningsøkt
 
 				break;
-			case 4:
+			case 4: // Lag Øvelsesgruppe
 
 				break;
-			case 5:
+			case 5:	// Lag Undergruppe
 
 				break;
-			case 6:
+			case 6:	// Se Apparat
 				ApparatScreen apScreen2 = new ApparatScreen(scan, this);
 				apScreen2.apparatMenu(2);
 			case 1000:
@@ -106,6 +106,11 @@ public class TextInterface
 			System.out.println(e);
 		}
 		return selection;
+	}
+	
+	public String getInputString()
+	{
+		return scan.nextLine();
 	}
 
 	private void printMainMenu()
