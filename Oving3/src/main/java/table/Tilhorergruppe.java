@@ -2,8 +2,8 @@ package table;
 
 public class Tilhorergruppe
 {
-	public int gruppeID; // primary key to gruppe
-	public int ovelsesID; // foreign key to gruppe
+	private int gruppeID; // primary key to gruppe
+	private int ovelsesID; // foreign key to gruppe
 	
 	public Tilhorergruppe(Gruppe gruppe, Ovelse ovelse)
 	{
@@ -24,5 +24,13 @@ public class Tilhorergruppe
 	private void setOvelsesID(Ovelse ovelse)
 	{
 		this.ovelsesID = ovelse.getOvelsesID();
+	}
+	
+	public static int getGruppeID(Tilhorergruppe tilhorer) {
+		return tilhorer.gruppeID;
+	}
+	
+	public static int getOvelsesID(Tilhorergruppe tilhorer) {
+		return tilhorer.ovelsesID;
 	}
 }
