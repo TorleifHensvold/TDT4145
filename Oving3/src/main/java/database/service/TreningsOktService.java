@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,6 +59,43 @@ public class TreningsOktService {
 			listOfOkt.add(o);
 		}
 		return listOfOkt;
+	}
+	
+	public static String getOvelseInInterval(int lower, int upper, String navn) throws SQLException {
+		Connection conn = DatabaseService.getDatasource().getConnection();
+		PreparedStatement prepStat = conn.prepareStatement("select `dato`, `tidspunkt`, `beskrivelse`, `navn` "
+				+ "from(((`treningsokt` JOIN `inneholder` ON `treningsokt`.`OktID`=`inneholder`.`OktID`) "
+				+ "join `ovelse` on `inneholder`.`OvelsesID` = `ovelse`.`OvelsesID`)"
+				+ "join `utenapparat` on `utenapparat`.`OvelsesID` = `ovelse`.`OvelsesID`) "
+				+ "where `ovelse`.`Navn` = ? and `treningsokt`.`Dato` <= ? and `treningsokt`.`Dato` >= ?;");
+		prepStat.setString(1, navn);
+		prepStat.setInt(2, upper);
+		prepStat.setInt(3, lower);
+		
+		String str = "";
+		
+		ResultSet rs = prepStat.executeQuery();
+		while(rs.next()) {
+			str += rs.getString(1) + rs.getString(2) + rs.getString(3) + rs.getString(4);
+		}
+		
+		PreparedStatement prepStat1 = conn.prepareStatement("select `dato`, `tidspunkt`, `navn`, `antallkilo`, `antallsett` "
+				+ "from(((`treningsokt` JOIN `inneholder` ON `treningsokt`.`OktID`=`inneholder`.`OktID`) "
+				+ "join `ovelse` on `inneholder`.`OvelsesID` = `ovelse`.`OvelsesID`)"
+				+ "join `apparatovelse` on `apparatovelse`.`OvelsesID` = `ovelse`.`OvelsesID`) "
+				+ "where `ovelse`.`Navn` = ? and `treningsokt`.`Dato` <= ? and `treningsokt`.`Dato` >= ?;");
+		prepStat1.setString(1, navn);
+		prepStat1.setInt(2, upper);
+		prepStat1.setInt(3, lower);
+		
+		String str1 = "";
+		
+		ResultSet rs1 = prepStat1.executeQuery();
+		while(rs1.next()) {
+			str1 += rs1.getString(1) + rs1.getString(2) + rs1.getString(3) + Integer.toString(rs1.getInt(4)) + Integer.toString(rs1.getInt(5));
+		}
+		
+		return (str + str1);
 		
 	}
 }
