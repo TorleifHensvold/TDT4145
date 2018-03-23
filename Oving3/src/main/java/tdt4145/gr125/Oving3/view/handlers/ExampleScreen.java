@@ -24,10 +24,10 @@ public class ExampleScreen
 
 	public void classMenu(int i)
 	{
-		System.out.println("into classMenu");
+	//	System.out.println("into classMenu");
 		switch (i)
 		{
-		case 0:
+		case 1:
 			
 			return;
 		case 2:
