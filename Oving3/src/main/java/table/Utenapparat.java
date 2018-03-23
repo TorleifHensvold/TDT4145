@@ -10,6 +10,10 @@ public class Utenapparat extends Ovelse
 		super.setOvelsesID(ovelsesID);// setID(OvelsesID);
 		setBeskrivelse(beskrivelse);
 	}
+	
+	public Utenapparat() {
+		
+	}
 
 	/*
 	 * public void setID(int OvelsesID) throws Exception{ if (OvelsesID <=
