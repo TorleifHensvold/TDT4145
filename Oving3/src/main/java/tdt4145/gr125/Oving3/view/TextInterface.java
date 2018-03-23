@@ -19,26 +19,25 @@ public class TextInterface
 			"Se Øvelse"	// 7
 			};
 
-	private void mainScreen()
+	private void mainScreen() throws Exception
 	{
 		System.out.println("This is the main screen. Here you will be able to choose different options.");
 		System.out.println("");
 		mainMenu();
-		System.out.println("out of mainMenu");
-		mainMenu();
+	//	System.out.println("out of mainMenu");
 	}
 
-	private void mainMenu()
+	private void mainMenu() throws Exception
 	{
-		System.out.println("into mainMenu");
+	//	System.out.println("into mainMenu");
 		scan = new Scanner(System.in);
 		while (true)
 		{
-			System.out.println("into while(true)");
+		//	System.out.println("into while(true)");
 			printMainMenu();
-			System.out.println("Out of printMainMenu");
-			int menuSelected = getMenuSelection(0, this.menu.length-1);
-			System.out.println("Out of getMenuSelection");
+		//	System.out.println("Out of printMainMenu");
+			int menuSelected = getMenuSelection(0, this.menu.length);
+		//	System.out.println("Out of getMenuSelection");
 
 			switch (menuSelected)
 			{
@@ -48,10 +47,11 @@ public class TextInterface
 			case 1: // Registrer Apparat
 				ApparatScreen apScreen1 = new ApparatScreen(scan, this);
 				apScreen1.apparatMenu(1);
-				System.out.println("out of apparatMenu");
+				//System.out.println("out of apparatMenu");
 				break;
-			case 2:	// Registrer øvelse
-
+			case 2:	// Registrer Øvelse
+				OvelseScreen ovScreen1 = new OvelseScreen(this);
+				ovScreen1.OvelseMenu(1);
 				break;
 			case 3:	// Registrer Treningsøkt
 
@@ -71,14 +71,14 @@ public class TextInterface
 			case 1000:
 				break;
 			}
-			System.out.println("out of switch statement");
+			//System.out.println("out of switch statement");
 		}
 		// scan.close();
 	}
 
 	public int getMenuSelection(int minNumber, int maxNumber)
 	{
-		System.out.println("Into getMenuSelection");
+	//	System.out.println("Into getMenuSelection");
 		String oppfordre = "\nType in a number given in brackets in the menu, from " + minNumber + " to "
 				+ Integer.toString(maxNumber);
 		System.out.println(oppfordre);
@@ -121,7 +121,7 @@ public class TextInterface
 
 	private void printMainMenu()
 	{
-		System.out.println("Into printMainMenu");
+	//	System.out.println("Into printMainMenu");
 		String menuName = "------MENU------";
 		printMenu(menuName, this.menu);
 		// System.out.println("------MENU------");
@@ -134,7 +134,7 @@ public class TextInterface
 
 	public void printMenu(String menuName, String[] menuOptions)
 	{
-		System.out.println("into printMenu");
+	//	System.out.println("into printMenu");
 		System.out.println(menuName);
 		for (int i = 0; i < menuOptions.length; i++)
 		{
@@ -147,7 +147,15 @@ public class TextInterface
 		// Create a new instance of TextInterface.
 		TextInterface annt = new TextInterface();
 		// Start it at the correct screen.
-		annt.mainScreen();
+		try
+		{
+			annt.mainScreen();
+		}
+		catch (Exception e) 
+		{
+			System.out.println(e);
+			System.exit(0);
+		}
 
 		// annt.printMainMenu();
 	}
