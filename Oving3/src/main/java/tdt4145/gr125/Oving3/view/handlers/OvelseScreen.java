@@ -2,8 +2,12 @@
 package tdt4145.gr125.Oving3.view.handlers;
 
 
+import java.sql.SQLException;
+
 import database.service.OvelseService;
+import database.service.UtenapparatService;
 import table.Ovelse;
+import table.Utenapparat;
 import tdt4145.gr125.Oving3.view.TextInterface;
 
 public class OvelseScreen
@@ -17,7 +21,7 @@ public class OvelseScreen
 
 	private String[] viewOvelseOptions = { // The options for viewingOvelse
 			"Back", // 0
-			"Se alle Øvelse" // 1
+			"Se alle Øvelser" // 1
 	};
 
 	public OvelseScreen(TextInterface tx)
@@ -25,7 +29,7 @@ public class OvelseScreen
 		this.tx = tx;
 	}
 
-	public void OvelseMenu(int i)
+	public void OvelseMenu(int i) throws Exception
 	{
 		//System.out.println("into ovelseMenu");
 		switch (i)
@@ -42,7 +46,7 @@ public class OvelseScreen
 
 	private void viewOvelse()
 	{
-		System.out.println("into viewOvelse");
+	//	System.out.println("into viewOvelse");
 		while (true)
 		{
 			printViewOvelseMenu();
@@ -74,7 +78,7 @@ public class OvelseScreen
 		tx.printMenu(menuName, viewOvelseOptions);
 	}
 
-	private void opprettOvelse()
+	private void opprettOvelse() throws Exception
 	{
 		while (true)
 		{
@@ -85,7 +89,10 @@ public class OvelseScreen
 			case 0:
 				return;
 			case 1:
-				initOvelse();
+				initApparatOvelse();
+				break;
+			case 2:
+				initUtenApparat();
 				break;
 			default:
 				System.out.println("default");
@@ -94,22 +101,66 @@ public class OvelseScreen
 		}
 	}
 
-	private void initOvelse()
+	private void initUtenApparat() throws SQLException
+	{	// Har ØvelsesID, Navn og Beskrivelse
+		System.out.println("Navn på Øvelsen");
+		String ovelsesNavn = tx.getInputString();
+		System.out.println("Beskrivelse av Øvelsen");
+		String ovelsesBeskrivelse = tx.getInputString();
+		boolean createdOvelse = initOvelse(ovelsesNavn);
+		if (createdOvelse)
+		{
+			try
+			{
+				//UtenapparatService
+			}
+			catch (Exception e)
+			{
+				System.out.println(e);
+				OvelseService.deleteOvelseByID(OvelseService.getMaxOvelsesID());
+			}
+		}
+	}
+
+	private void initApparatOvelse() throws SQLException
 	{
-		System.out.printf("Navn på Øvelse:");
-		String ovelseNavn = tx.getInputString();
-		
+		System.out.println("Navn på Øvelsen");
+		String ovelsesNavn = tx.getInputString();
+		System.out.println("Antall Kilo i Øvelsen");
+		String ovelsesKilo = tx.getInputString();
+		System.out.println("Antall Sett i Øvelsen");
+		String ovelsesSett = tx.getInputString();
+		boolean createdOvelse = initOvelse(ovelsesNavn);
+		if (createdOvelse)
+		{
+			try
+			{
+				
+			}
+			catch (Exception e)
+			{
+				System.out.println(e);
+				OvelseService.deleteOvelseByID(OvelseService.getMaxOvelsesID());
+			}
+		}
+	}
+
+	protected boolean initOvelse(String ovelsesNavn)
+	{
 		try
 		{
 			int prevOvID = OvelseService.getMaxOvelsesID();
 			int ovelsesID = prevOvID + 1;
-			Ovelse ovelse = new Ovelse(ovelsesID, ovelseNavn);
-			OvelseService.addOvelse(ovelse);;
+			Ovelse ovelse = new Ovelse(ovelsesID, ovelsesNavn);
+			OvelseService.addOvelse(ovelse);
+			
 		}
 		catch (Exception e)
 		{
 			System.out.println(e);
+			return false;
 		}
+		return true;
 	}
 
 	private void printOpprettOvelseMenu()
