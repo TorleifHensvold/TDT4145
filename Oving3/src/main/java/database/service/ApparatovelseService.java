@@ -8,7 +8,6 @@ import java.util.List;
 
 import table.Apparat;
 import table.Apparatovelse;
-import table.Ovelse;
 
 public class ApparatovelseService {
 	
