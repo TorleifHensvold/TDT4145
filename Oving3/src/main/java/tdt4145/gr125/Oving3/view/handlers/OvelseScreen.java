@@ -118,7 +118,8 @@ public class OvelseScreen
 		{
 			try
 			{
-				//UtenapparatService
+				Utenapparat app = new Utenapparat(OvelseService.getMaxOvelsesID(), ovelsesBeskrivelse);
+				UtenapparatService.addNewUtenapparat(app);
 			}
 			catch (Exception e)
 			{
