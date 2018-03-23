@@ -90,7 +90,7 @@ public class OvelseService
 	public static int getMaxOvelsesID() throws SQLException
 	{
 		Connection conn = DatabaseService.getDatasource().getConnection();
-		PreparedStatement prepState = conn.prepareStatement("SELECT MAX(ovelse.OvelseID) FROM ovelse");
+		PreparedStatement prepState = conn.prepareStatement("SELECT MAX(ovelse.OvelsesID) FROM ovelse");
 		ResultSet rs = prepState.executeQuery();
 		rs.first();
 		int max = rs.getInt(1);
@@ -107,5 +107,14 @@ public class OvelseService
 			str += liste.get(i).toString() + "\n";
 		}
 		return str;
+	}
+	
+	public static void deleteOvelseByID(int id) throws SQLException
+	{
+		Connection conn = DatabaseService.getDatasource().getConnection();
+		PreparedStatement prepState = conn.prepareStatement("DELETE * FROM ovelse WHERE ovelse.OvelsesID = ?");
+		prepState.setInt(1, id);
+		prepState.executeUpdate();
+		conn.close();
 	}
 }
