@@ -4,6 +4,7 @@ package tdt4145.gr125.Oving3.view.handlers;
 import java.util.Scanner;
 
 import database.service.ApparatService;
+import table.Apparat;
 import tdt4145.gr125.Oving3.view.TextInterface;
 
 public class ApparatScreen
@@ -11,13 +12,13 @@ public class ApparatScreen
 	private TextInterface tx;
 
 	private String[] opprettApparatOptions = { // The options for oppretApparat
-			"Opprett Apparat", // 2
-			"Back" // 1
+			"Back",  // 0
+			"Opprett Apparat" // 1
 	};
 
 	private String[] viewApparatOptions = { // The options for viewingApparat
-			"Se alle Apparat", // 0
-			"Back" // 1
+			"Back", // 0
+			"Se alle Apparat" // 1
 	};
 
 	public ApparatScreen(Scanner scan, TextInterface tx)
@@ -52,6 +53,8 @@ public class ApparatScreen
 			switch (menuSelected)
 			{
 			case 0:
+				return;
+			case 1:
 				try
 				{
 					System.out.println(ApparatService.apparatListeToString(ApparatService.getAllApparat()));
@@ -61,9 +64,6 @@ public class ApparatScreen
 					System.out.println(e);
 				}
 				break;
-			case 1:
-
-				return;
 			default:
 				return;
 			}
@@ -78,19 +78,39 @@ public class ApparatScreen
 
 	private void opprettApparat()
 	{
-		printOpprettApparatMenu();
-		int menuSelected = tx.getMenuSelection(0, 1);
-		switch (menuSelected)
+		while (true)
 		{
-		case 0:
-
-			break;
-
-		default:
-			System.out.println("default");
-			break;
+			printOpprettApparatMenu();
+			int menuSelected = tx.getMenuSelection(0, 1);
+			switch (menuSelected)
+			{
+			case 0:
+				return;
+			case 1:
+				initApparat();
+				break;
+			default:
+				System.out.println("default");
+				return;
+			}
 		}
+	}
 
+	private void initApparat()
+	{
+		System.out.printf("Navn på Apparatet:");
+		String apparatNavn = tx.getInputString();
+		System.out.printf("\nBeskrivelse av Apparatet:");
+		String apparatBeskrivelse = tx.getInputString();
+		try
+		{
+			Apparat ap = new Apparat(apparatNavn, apparatBeskrivelse);
+			ApparatService.NewApparat(ap);
+		}
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
 	}
 
 	private void printOpprettApparatMenu()
