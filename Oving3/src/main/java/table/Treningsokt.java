@@ -6,8 +6,8 @@ public class Treningsokt
 	private String dato;
 	private String tidspunkt;
 	private int varighet;
-	private int form;
-	private int prestasjon;
+	private Integer form;
+	private Integer prestasjon;
 	private String notat;
 	
 	
@@ -190,10 +190,10 @@ public class Treningsokt
 	public void databaseSetsVarighet(int varighet) {
 		this.varighet = varighet;
 	}
-	public void databaseSetsForm(int form) {
+	public void databaseSetsForm(Integer form) {
 		this.form = form;
 	}
-	public void databaseSetsPrestasjon(int prestasjon) {
+	public void databaseSetsPrestasjon(Integer prestasjon) {
 		this.prestasjon = prestasjon;
 	}
 	public void databaseSetsNotat(String notat) {
