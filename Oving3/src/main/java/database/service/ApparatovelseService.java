@@ -1,8 +1,10 @@
 package database.service;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,5 +45,18 @@ public class ApparatovelseService {
 			listOfApparatovelse.add(aov);
 		}
 		return listOfApparatovelse;
+	}
+	
+	public static void addApparatOvelse(Apparatovelse apo) throws Exception
+	{
+		Connection conn = DatabaseService.getDatasource().getConnection();
+		PreparedStatement prepState = conn.prepareStatement("INSERT INTO apparatovelse VALUE (OvelsesID, "
+				+ "AntallKilo, AntallSet, Apparat)");
+		prepState.setInt(1, apo.getOvelsesID());
+		prepState.setInt(2, apo.getAntallKilo());
+		prepState.setInt(3, apo.getAntallSett());
+		prepState.setString(4, apo.getApparat().getNavn());
+		prepState.executeUpdate();
+		conn.close();
 	}
 }
