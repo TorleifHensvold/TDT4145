@@ -93,7 +93,6 @@ public class ApparatService
 		}
 
 		List<Apparat> listOfApparat = convertResultSetToList(rs);
-
 		rs.close();
 		conn.close();
 
@@ -113,4 +112,17 @@ public class ApparatService
 		}
 		return listOfOvelse;
 	}
+	
+	public static String apparatListeToString(List<Apparat> liste)
+	{
+		
+		String str = String.format("%-30s", "Navn") + String.format("|%-30s", "Beskrivelse") + "\n";
+		for (int i = 0; i < liste.size(); i++)
+		{
+			str += liste.get(i).toString() + "\n";
+		}
+		return str;
+	}
+	
+
 }
