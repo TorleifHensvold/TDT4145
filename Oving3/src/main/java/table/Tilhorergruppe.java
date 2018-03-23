@@ -26,11 +26,11 @@ public class Tilhorergruppe
 		this.ovelsesID = ovelse.getOvelsesID();
 	}
 	
-	public static int getGruppeID(Tilhorergruppe tilhorer) {
-		return tilhorer.gruppeID;
+	public int getGruppeID() {
+		return this.gruppeID;
 	}
 	
-	public static int getOvelsesID(Tilhorergruppe tilhorer) {
-		return tilhorer.ovelsesID;
+	public int getOvelsesID() {
+		return this.ovelsesID;
 	}
 }
