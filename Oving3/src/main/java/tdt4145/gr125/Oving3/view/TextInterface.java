@@ -14,7 +14,7 @@ public class TextInterface
 			"Registrer Treningsøkt", // 3
 			"Lag Øvelsesgruppe", // 4
 			"Lag Undergruppe", // 5
-			"" };
+			"Se Apparat" };
 
 	private void mainScreen()
 	{
@@ -34,7 +34,7 @@ public class TextInterface
 			System.out.println("into while(true)");
 			printMainMenu();
 			System.out.println("Out of printMainMenu");
-			int menuSelected = getMenuSelection(0, 5);
+			int menuSelected = getMenuSelection(0, 6);
 			System.out.println("Out of getMenuSelection");
 
 			switch (menuSelected)
@@ -43,8 +43,8 @@ public class TextInterface
 				System.out.println("Hade.");
 				System.exit(0);
 			case 1:
-				ApparatScreen apScreen = new ApparatScreen(scan, this);
-				apScreen.apparatMenu(1);
+				ApparatScreen apScreen1 = new ApparatScreen(scan, this);
+				apScreen1.apparatMenu(1);
 				System.out.println("out of apparatMenu");
 				break;
 			case 2:
@@ -59,6 +59,9 @@ public class TextInterface
 			case 5:
 
 				break;
+			case 6:
+				ApparatScreen apScreen2 = new ApparatScreen(scan, this);
+				apScreen2.apparatMenu(2);
 			case 1000:
 				break;
 			}
