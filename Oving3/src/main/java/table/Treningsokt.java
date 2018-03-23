@@ -10,6 +10,7 @@ public class Treningsokt
 	private int prestasjon;
 	private String notat;
 	
+	
 	public Treningsokt(int oktID, String dato, String tidspunkt, 
 			int varighet, int form, int prestasjon, String notat) throws Exception
 	{
@@ -20,6 +21,10 @@ public class Treningsokt
 		setForm(form);
 		setPrestasjon(prestasjon);
 		setNotat(notat);
+	}
+	
+	public Treningsokt() {
+		
 	}
 	
 	// ---------------------- Getters ------------------------------- //
@@ -173,6 +178,26 @@ public class Treningsokt
 		}
 	}
 	
-	// TODO: Create empty constructor, and setters to add an existing instance from SQL server
-	
+	public void databaseSetsOktID(int oktID) {
+		this.oktID = oktID;
+	}
+	public void databaseSetsDato(String dato) {
+		this.dato = dato;
+	}
+	public void databaseSetsTidspunkt(String tidspunkt) {
+		this.tidspunkt = tidspunkt;
+	}
+	public void databaseSetsVarighet(int varighet) {
+		this.varighet = varighet;
+	}
+	public void databaseSetsForm(int form) {
+		this.form = form;
+	}
+	public void databaseSetsPrestasjon(int prestasjon) {
+		this.prestasjon = prestasjon;
+	}
+	public void databaseSetsNotat(String notat) {
+		this.notat = notat;
+	}
+
 }
