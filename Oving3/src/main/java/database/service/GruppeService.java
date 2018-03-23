@@ -7,17 +7,25 @@ import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 import java.util.List;
 
+import table.Apparatovelse;
 import table.Gruppe;
 import table.Ovelse;
+import table.Utenapparat;
 
 public class GruppeService {
 	
 	public static List<Ovelse> includedInGruppe(int GruppeID) throws Exception{
 		Connection conn = DatabaseService.getDatasource().getConnection();
-		PreparedStatement prepStatement = conn.prepareStatement("SELECT * FROM (((gruppe NATURAL JOIN tilhorergruppe) NATURAL JOIN ovelse) NATURAL JOIN (apparatovelse UNION utenapparat)) WHERE gruppe.GruppeID=?;");
-		prepStatement.setInt(1, GruppeID);
+		PreparedStatement prepStatA = conn.prepareStatement("SELECT * FROM ( ((`gruppe` NATURAL JOIN `tilhorergruppe`) NATURAL JOIN `ovelse`) NATURAL JOIN `apparatovelse`) WHERE `gruppe`.`GruppeID`=?;");
+		PreparedStatement prepStatU = conn.prepareStatement("SELECT * FROM ( ((`gruppe` NATURAL JOIN `tilhorergruppe`) NATURAL JOIN `ovelse`) NATURAL JOIN `utenapparat`) WHERE `gruppe`.`GruppeID`=?;");
+		prepStatA.setInt(1, GruppeID);
+		prepStatU.setInt(1, GruppeID);
+		List<Apparatovelse> listOfOvelseA = ApparatovelseService.getApparatovelseByStatement(prepStatA);
+		List<Utenapparat> listOfOvelseU = UtenapparatService.getApparatovelseByStatement(prepStatU);
 		
-		List<Ovelse> listOfOvelse = OvelseService.getOvelserByStatement(prepStatement);
+		List<Ovelse> listOfOvelse = new ArrayList<Ovelse>();
+		listOfOvelse.addAll(listOfOvelseU);
+		listOfOvelse.addAll(listOfOvelseA);
 		
 		conn.close();
         

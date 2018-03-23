@@ -2,12 +2,9 @@ package database.service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-
-import table.Gruppe;
 import table.Undergruppe;
 
 public class UnderGruppeService {
-	
 	
 	
 	public static boolean createRelation(Undergruppe gruppe) {

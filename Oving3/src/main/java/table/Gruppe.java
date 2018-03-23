@@ -12,7 +12,6 @@ public class Gruppe
 	}
 	
 	public Gruppe() {
-		// TODO: Add empty constructor
 	}
 
 	private void setTypeOvelse(String typeOvelse) throws Exception
