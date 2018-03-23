@@ -3,7 +3,7 @@ package table;
 public class Tilhorergruppe
 {
 	public int gruppeID; // primary key to gruppe
-	public int overlsesID; // foreign key to gruppe
+	public int ovelsesID; // foreign key to gruppe
 	
 	public Tilhorergruppe(Gruppe gruppe, Ovelse ovelse)
 	{
@@ -23,6 +23,6 @@ public class Tilhorergruppe
 	
 	private void setOvelsesID(Ovelse ovelse)
 	{
-		this.overlsesID = ovelse.getOvelsesID();
+		this.ovelsesID = ovelse.getOvelsesID();
 	}
 }
