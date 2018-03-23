@@ -1,10 +1,13 @@
 package table;
 
+import database.service.GruppeService;
+import database.service.UnderGruppeService;
+
 public class Undergruppe {
 	private int gruppeID;
 	private int underGruppeID;
 	
-	public Undergruppe(int GruppeID, int undergruppeID) {
+	public Undergruppe(int GruppeID, int undergruppeID) throws Exception {
 		setGruppeID(GruppeID);
 		setUnderGruppeID(undergruppeID);
 	}
@@ -26,10 +29,10 @@ public class Undergruppe {
 	public int getUnderGruppeID() {
 		return underGruppeID;
 	}
-	public void setUnderGruppeID(int underGruppeID) {
-		if (underGruppeID <= 1000000000) {
+	public void setUnderGruppeID(int underGruppeID) throws Exception {
+		if (underGruppeID <= 1000000000 && (GruppeService.getGruppeByID(underGruppeID) != null)) {
 			this.underGruppeID = underGruppeID;
-		} else { //TODO: Create else if (underGruppeID does not exist) then Exception, also should not be the same as gruppeID
+		} else {
 			throw new IllegalArgumentException("The number is too high to be an integer in java.");
 		}
 	}
