@@ -107,7 +107,7 @@ public class OvelseService
 			str += liste.get(i).toString() + "\n";
 		}
 		return str;
-	}
+	} 
 	
 	public static void deleteOvelseByID(int id) throws SQLException
 	{
