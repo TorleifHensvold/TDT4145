@@ -11,14 +11,14 @@ public class ApparatScreen
 	private TextInterface tx;
 
 	private String[] opprettApparatOptions = { // The options for oppretApparat
-			"Opprett Apparat", //2
+			"Opprett Apparat", // 2
 			"Back" // 1
-			};
-	
+	};
+
 	private String[] viewApparatOptions = { // The options for viewingApparat
 			"Se alle Apparat", // 0
 			"Back" // 1
-			};
+	};
 
 	public ApparatScreen(Scanner scan, TextInterface tx)
 	{
@@ -43,18 +43,30 @@ public class ApparatScreen
 
 	private void viewApparat()
 	{
-		printViewApparatMenu();
-		int menuSelected = tx.getMenuSelection(0, 1);
-		switch (menuSelected)
+		System.out.println("into viewApparat");
+		while (true)
 		{
-		case 0:
-			//ApparatService.
-			break;
-		case 1:
-			
-			break;
-		default:
-			break;
+			printViewApparatMenu();
+			int menuSelected = tx.getMenuSelection(0, 1);
+			System.out.println("out of getMenuSelection");
+			switch (menuSelected)
+			{
+			case 0:
+				try
+				{
+					System.out.println(ApparatService.apparatListeToString(ApparatService.getAllApparat()));
+				}
+				catch (Exception e)
+				{
+					System.out.println(e);
+				}
+				break;
+			case 1:
+
+				return;
+			default:
+				return;
+			}
 		}
 	}
 
