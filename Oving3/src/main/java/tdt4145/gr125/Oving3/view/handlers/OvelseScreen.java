@@ -1,55 +1,53 @@
 
 package tdt4145.gr125.Oving3.view.handlers;
 
-import java.util.Scanner;
 
-import database.service.ApparatService;
-import table.Apparat;
+import database.service.OvelseService;
+import table.Ovelse;
 import tdt4145.gr125.Oving3.view.TextInterface;
 
 public class OvelseScreen
 {
 	private TextInterface tx;
 
-	private String[] opprettApparatOptions = { // The options for oppretApparat
+	private String[] opprettOvelseOptions = { // The options for oppretOvelse
 			"Back",  // 0
-			"Opprett Apparat" // 1
+			"Opprett Øvelse" // 1
 	};
 
-	private String[] viewApparatOptions = { // The options for viewingApparat
+	private String[] viewOvelseOptions = { // The options for viewingOvelse
 			"Back", // 0
-			"Se alle Apparat" // 1
+			"Se alle Øvelse" // 1
 	};
 
-	public OvelseScreen(Scanner scan, TextInterface tx)
+	public OvelseScreen(TextInterface tx)
 	{
 		this.tx = tx;
 	}
 
-	public void apparatMenu(int i)
+	public void OvelseMenu(int i)
 	{
-		System.out.println("into apparatMenu");
+		//System.out.println("into ovelseMenu");
 		switch (i)
 		{
 		case 1:
-			opprettApparat();
+			opprettOvelse();
 			break;
 		case 2:
-			viewApparat();
-			break;
+			viewOvelse();
 		default:
 			break;
 		}
 	}
 
-	private void viewApparat()
+	private void viewOvelse()
 	{
-		System.out.println("into viewApparat");
+		System.out.println("into viewOvelse");
 		while (true)
 		{
-			printViewApparatMenu();
+			printViewOvelseMenu();
 			int menuSelected = tx.getMenuSelection(0, 1);
-			System.out.println("out of getMenuSelection");
+			//System.out.println("out of getMenuSelection");
 			switch (menuSelected)
 			{
 			case 0:
@@ -57,7 +55,7 @@ public class OvelseScreen
 			case 1:
 				try
 				{
-					System.out.println(ApparatService.apparatListeToString(ApparatService.getAllApparat()));
+					System.out.println(OvelseService.ovelseListeToString(OvelseService.getAllOvelser()));
 				}
 				catch (Exception e)
 				{
@@ -70,24 +68,24 @@ public class OvelseScreen
 		}
 	}
 
-	private void printViewApparatMenu()
+	private void printViewOvelseMenu()
 	{
-		String menuName = "------ViewApparatMenu------";
-		tx.printMenu(menuName, viewApparatOptions);
+		String menuName = "------ViewOvelseMenu------";
+		tx.printMenu(menuName, viewOvelseOptions);
 	}
 
-	private void opprettApparat()
+	private void opprettOvelse()
 	{
 		while (true)
 		{
-			printOpprettApparatMenu();
+			printOpprettOvelseMenu();
 			int menuSelected = tx.getMenuSelection(0, 1);
 			switch (menuSelected)
 			{
 			case 0:
 				return;
 			case 1:
-				initApparat();
+				initOvelse();
 				break;
 			default:
 				System.out.println("default");
@@ -96,16 +94,17 @@ public class OvelseScreen
 		}
 	}
 
-	private void initApparat()
+	private void initOvelse()
 	{
-		System.out.printf("Navn på Apparatet:");
-		String apparatNavn = tx.getInputString();
-		System.out.printf("\nBeskrivelse av Apparatet:");
-		String apparatBeskrivelse = tx.getInputString();
+		System.out.printf("Navn på Øvelse:");
+		String ovelseNavn = tx.getInputString();
+		
 		try
 		{
-			Apparat ap = new Apparat(apparatNavn, apparatBeskrivelse);
-			ApparatService.NewApparat(ap);
+			int prevOvID = OvelseService.getMaxOvelsesID();
+			int ovelsesID = prevOvID + 1;
+			Ovelse ovelse = new Ovelse(ovelsesID, ovelseNavn);
+			OvelseService.addOvelse(ovelse);;
 		}
 		catch (Exception e)
 		{
@@ -113,10 +112,10 @@ public class OvelseScreen
 		}
 	}
 
-	private void printOpprettApparatMenu()
+	private void printOpprettOvelseMenu()
 	{
-		String menuName = "------OpprettApparatMenu------";
-		tx.printMenu(menuName, opprettApparatOptions);
+		String menuName = "------OpprettOvelseMenu------";
+		tx.printMenu(menuName, opprettOvelseOptions);
 
 	}
 }
