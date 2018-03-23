@@ -1,14 +1,35 @@
 package database.service;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import table.Apparatovelse;
 import table.Utenapparat;
 
 public class UtenapparatService {
+	public void addNewUtenapparat(Utenapparat app) throws SQLException {
+		Connection conn = DatabaseService.getDatasource().getConnection();
+		PreparedStatement prepStat = conn.prepareStatement("INSERT INTO utenapparat (OvelsesID, Beskrivelse) VALUES (?, ?);");
+		prepStat.setInt(1, app.getOvelsesID());
+		prepStat.setString(2, app.getBeskrivelse());
+		prepStat.executeUpdate();
+		conn.close();
+	}
 	
+	public static void deleteUtenapparatOvelse(Utenapparat app) throws Exception
+	{
+		Connection conn = DatabaseService.getDatasource().getConnection();
+		PreparedStatement prepState = conn.prepareStatement("DELETE * FROM utenapparatovelse WHERE OvelsesID = ?");
+		prepState.setInt(1, app.getOvelsesID());
+		OvelseService.deleteOvelseByID(app.getOvelsesID());
+		conn.close();
+	}
+		
 	public static List<Utenapparat> getApparatovelseByStatement(PreparedStatement prepState) throws Exception{
 		
 		ResultSet rs = prepState.executeQuery();
