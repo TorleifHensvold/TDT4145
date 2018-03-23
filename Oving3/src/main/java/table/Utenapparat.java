@@ -33,6 +33,10 @@ public class Utenapparat extends Ovelse
 			throw new IllegalArgumentException("this string is too long");
 		}
 	}
+	
+	public void databaseSetsBeskrivelse(String Beskrivelse) {
+		this.beskrivelse = Beskrivelse;
+	}
 
 	/*
 	 * public int getOvelsesID() { return OvelsesID; }
