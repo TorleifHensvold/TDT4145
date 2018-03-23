@@ -4,6 +4,7 @@ package tdt4145.gr125.Oving3.view;
 import java.util.Scanner;
 
 import tdt4145.gr125.Oving3.view.handlers.ApparatScreen;
+import tdt4145.gr125.Oving3.view.handlers.OvelseScreen;
 
 public class TextInterface
 {
@@ -14,7 +15,9 @@ public class TextInterface
 			"Registrer Treningsøkt", // 3
 			"Lag Øvelsesgruppe", // 4
 			"Lag Undergruppe", // 5
-			"Se Apparat" };
+			"Se Apparat", // 6
+			"Se Øvelse"	// 7
+			};
 
 	private void mainScreen()
 	{
@@ -34,7 +37,7 @@ public class TextInterface
 			System.out.println("into while(true)");
 			printMainMenu();
 			System.out.println("Out of printMainMenu");
-			int menuSelected = getMenuSelection(0, 6);
+			int menuSelected = getMenuSelection(0, this.menu.length-1);
 			System.out.println("Out of getMenuSelection");
 
 			switch (menuSelected)
@@ -62,6 +65,9 @@ public class TextInterface
 			case 6:	// Se Apparat
 				ApparatScreen apScreen2 = new ApparatScreen(scan, this);
 				apScreen2.apparatMenu(2);
+			case 7: // Se Øvelser
+				OvelseScreen ovScreen2 = new OvelseScreen(this);
+				ovScreen2.OvelseMenu(2);
 			case 1000:
 				break;
 			}
