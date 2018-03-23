@@ -7,8 +7,6 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import table.Apparatovelse;
 import table.Utenapparat;
 
 public class UtenapparatService {
