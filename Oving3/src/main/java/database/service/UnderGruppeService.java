@@ -2,8 +2,6 @@ package database.service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-
-import table.Gruppe;
 import table.Undergruppe;
 
 public class UnderGruppeService {
