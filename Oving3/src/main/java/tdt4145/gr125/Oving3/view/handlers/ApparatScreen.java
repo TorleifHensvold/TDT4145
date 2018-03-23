@@ -121,9 +121,8 @@ public class ApparatScreen
 
 	}
 	
-	protected int getApparatByNumber() throws Exception
+	protected int getApparatByNumber(List<Apparat> apList) throws Exception
 	{
-		List<Apparat> apList = ApparatService.getAllApparat();
 		for (int i = 0; i < apList.size(); i++)
 		{
 			System.out.println(String.format("%5", "[" + i + "] ") + apList.get(i).toString() + "\n");
