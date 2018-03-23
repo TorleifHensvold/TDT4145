@@ -10,7 +10,9 @@ import java.util.List;
 import table.Utenapparat;
 
 public class UtenapparatService {
-	public void addNewUtenapparat(Utenapparat app) throws SQLException {
+	
+	
+	public static void addNewUtenapparat(Utenapparat app) throws SQLException {
 		Connection conn = DatabaseService.getDatasource().getConnection();
 		PreparedStatement prepStat = conn.prepareStatement("INSERT INTO utenapparat (OvelsesID, Beskrivelse) VALUES (?, ?);");
 		prepStat.setInt(1, app.getOvelsesID());
