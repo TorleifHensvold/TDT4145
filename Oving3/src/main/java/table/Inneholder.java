@@ -12,6 +12,10 @@ public class Inneholder
 		setOvelsesID(OvelsesID);
 	}
 	
+	public Inneholder() {
+		
+	}
+	
 	public int getOktID() 
 	{
 		return OktID;
