@@ -2,7 +2,12 @@ package database.service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.util.ArrayList;
+import java.util.List;
 
+import table.Ovelse;
 import table.Treningsokt;
 
 public class TreningsOktService {
@@ -27,7 +32,32 @@ public class TreningsOktService {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
-		}
+		}	
+	}
 	
+	public static List<Treningsokt> getNLastTreningsokt(int n) throws Exception{
+		Connection conn = DatabaseService.getDatasource().getConnection();
+		PreparedStatement prepStatement = conn.prepareStatement("SELECT * FROM treningsokt ORDER BY dato + 0 DESC LIMIT ?");
+		prepStatement.setInt(1, n);
+		
+		ResultSet rs =  prepStatement.executeQuery();
+		
+		List<Treningsokt> listOfOkt = new ArrayList<Treningsokt>();
+		
+		while (rs.next())
+		{
+			Treningsokt o = new Treningsokt();
+			o.databaseSetsOktID(rs.getInt("OktID"));
+			o.databaseSetsDato(rs.getString("Dato"));
+			o.databaseSetsTidspunkt(rs.getString("Tidspunkt"));
+			o.databaseSetsForm((Integer)rs.getObject("Form"));
+			o.databaseSetsNotat((String)rs.getObject("Notat"));
+			o.databaseSetsVarighet(rs.getInt("Varighet"));
+			o.databaseSetsPrestasjon((Integer)rs.getObject("Prestasjon"));
+			
+			listOfOkt.add(o);
+		}
+		return listOfOkt;
+		
 	}
 }
