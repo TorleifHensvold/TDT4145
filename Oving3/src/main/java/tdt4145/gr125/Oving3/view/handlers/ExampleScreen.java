@@ -11,7 +11,7 @@ public class ExampleScreen
 	private TextInterface tx; // This handles input from user and showing menus to users.
 
 	private String[] opprettClassOptions = { // The options connected to the number given by user.
-			"", //
+			"Back", //
 			"", //
 	}
 
@@ -27,9 +27,9 @@ public class ExampleScreen
 		System.out.println("into classMenu");
 		switch (i)
 		{
-		case 1:
+		case 0:
 			
-			break;
+			return;
 		case 2:
 
 			break;
