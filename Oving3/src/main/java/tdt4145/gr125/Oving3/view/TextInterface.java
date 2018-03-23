@@ -1,69 +1,81 @@
+
 package tdt4145.gr125.Oving3.view;
 
 import java.util.Scanner;
 
+import tdt4145.gr125.Oving3.view.handlers.ApparatScreen;
+
 public class TextInterface
 {
-	private String[] menu = 
-		{"Exit", 							// 0 
-		"Registrer Apparat",				// 1
-		"Registrer Øvelse",					// 2
-		"Registrer Treningsøkt",			// 3
-		"Lag Øvelsesgruppe",				// 4
-		"Lag Undergruppe",					// 5
-		""
-		};
-	
-	public void mainScreen()
+	private Scanner scan;
+	private String[] menu = { "Exit", // 0
+			"Registrer Apparat", // 1
+			"Registrer Øvelse", // 2
+			"Registrer Treningsøkt", // 3
+			"Lag Øvelsesgruppe", // 4
+			"Lag Undergruppe", // 5
+			"" };
+
+	private void mainScreen()
 	{
 		System.out.println("This is the main screen. Here you will be able to choose different options.");
 		System.out.println("");
 		mainMenu();
+		System.out.println("out of mainMenu");
+		mainMenu();
 	}
 
-	public void mainMenu()
+	private void mainMenu()
 	{
 		System.out.println("into mainMenu");
-		int menuSelected = getMenuSelection(5);
-		System.out.println("Out of getMenuSelection");
-		
-		switch (menuSelected)
+		scan = new Scanner(System.in);
+		while (true)
 		{
-		case 0:
-			System.out.println("Bye.");
-			System.exit(0);
-		case 1:
-			
-			break;
-		case 2:
-			
-			break;
-		case 3:
-			
-			break;
-		case 4:
-			
-			break;
-		case 5:
-			
-			break;
-		case 1000:
-			mainMenu();
-			break;
+			System.out.println("into while(true)");
+			printMainMenu();
+			System.out.println("Out of printMainMenu");
+			int menuSelected = getMenuSelection(0, 5);
+			System.out.println("Out of getMenuSelection");
+
+			switch (menuSelected)
+			{
+			case 0:
+				System.out.println("Hade.");
+				System.exit(0);
+			case 1:
+				ApparatScreen apScreen = new ApparatScreen(scan, this);
+				apScreen.apparatMenu(1);
+				System.out.println("out of apparatMenu");
+				break;
+			case 2:
+
+				break;
+			case 3:
+
+				break;
+			case 4:
+
+				break;
+			case 5:
+
+				break;
+			case 1000:
+				break;
+			}
+			System.out.println("out of switch statement");
 		}
+		// scan.close();
 	}
-	
-	public int getMenuSelection(int maxNumber)
+
+	public int getMenuSelection(int minNumber, int maxNumber)
 	{
 		System.out.println("Into getMenuSelection");
-		printMainMenu();
-		System.out.println("Out of printMainMenu");
-		String oppfordre = "\nType in a number given in brackets in the menu, from 0 to " + Integer.toString(maxNumber);
+		String oppfordre = "\nType in a number given in brackets in the menu, from " + minNumber + " to "
+				+ Integer.toString(maxNumber);
 		System.out.println(oppfordre);
 		int selection = 1000;
 		try
 		{
-			Scanner scan = new Scanner(System.in);
 			boolean gotNumber = false;
 			while (!gotNumber)
 			{
@@ -84,24 +96,36 @@ public class TextInterface
 					System.out.println(oppfordre);
 				}
 			}
-			scan.close();
+
 		}
-		catch (Exception e) 
+		catch (Exception e)
 		{
 			System.out.println(e);
 		}
 		return selection;
 	}
-	
-	public void printMainMenu()
+
+	private void printMainMenu()
 	{
 		System.out.println("Into printMainMenu");
-		System.out.println("------MENU------");
-		for (int i = 0; i < menu.length; i++)
+		String menuName = "------MENU------";
+		printMenu(menuName, this.menu);
+		// System.out.println("------MENU------");
+		// for (int i = 0; i < menu.length; i++)
+		// {
+		// System.out.println("[" + i + "] " + menu[i]);
+		// }
+		// return;
+	}
+
+	public void printMenu(String menuName, String[] menuOptions)
+	{
+		System.out.println("into printMenu");
+		System.out.println(menuName);
+		for (int i = 0; i < menuOptions.length; i++)
 		{
-			System.out.println("[" + i + "] " + menu[i]);
+			System.out.println("[" + i + "] " + menuOptions[i]);
 		}
-		return;
 	}
 
 	public static void main(String[] args)
@@ -110,9 +134,8 @@ public class TextInterface
 		TextInterface annt = new TextInterface();
 		// Start it at the correct screen.
 		annt.mainScreen();
-		
-		
-		//annt.printMainMenu();
+
+		// annt.printMainMenu();
 	}
 
 }
