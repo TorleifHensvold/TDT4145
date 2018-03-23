@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import tdt4145.gr125.Oving3.view.handlers.ApparatScreen;
 import tdt4145.gr125.Oving3.view.handlers.OvelseScreen;
+import tdt4145.gr125.Oving3.view.handlers.TreningsoktScreen;
 
 public class TextInterface
 {
@@ -54,7 +55,8 @@ public class TextInterface
 				ovScreen1.OvelseMenu(1);
 				break;
 			case 3:	// Registrer Treningsøkt
-
+				TreningsoktScreen trenScreen1 = new TreningsoktScreen(this);
+				trenScreen1.classMenu(1);
 				break;
 			case 4: // Lag Øvelsesgruppe
 
@@ -65,9 +67,13 @@ public class TextInterface
 			case 6:	// Se Apparat
 				ApparatScreen apScreen2 = new ApparatScreen(scan, this);
 				apScreen2.apparatMenu(2);
+				break;
 			case 7: // Se Øvelser
 				OvelseScreen ovScreen2 = new OvelseScreen(this);
 				ovScreen2.OvelseMenu(2);
+				break;
+			case 8:	// Se Treningsøkt
+				
 			case 1000:
 				break;
 			}
