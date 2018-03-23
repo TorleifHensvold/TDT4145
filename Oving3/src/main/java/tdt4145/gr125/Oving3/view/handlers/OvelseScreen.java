@@ -3,12 +3,18 @@ package tdt4145.gr125.Oving3.view.handlers;
 
 
 import java.sql.SQLException;
+import java.util.List;
 
+import database.service.ApparatService;
+import database.service.ApparatovelseService;
 import database.service.OvelseService;
 import database.service.UtenapparatService;
+import table.Apparat;
+import table.Apparatovelse;
 import table.Ovelse;
 import table.Utenapparat;
 import tdt4145.gr125.Oving3.view.TextInterface;
+import tdt4145.gr125.Oving3.view.handlers.ApparatScreen;
 
 public class OvelseScreen
 {
@@ -127,15 +133,18 @@ public class OvelseScreen
 		System.out.println("Navn på Øvelsen");
 		String ovelsesNavn = tx.getInputString();
 		System.out.println("Antall Kilo i Øvelsen");
-		String ovelsesKilo = tx.getInputString();
+		int ovelsesKilo = tx.getMenuSelection(0, 1000);
 		System.out.println("Antall Sett i Øvelsen");
-		String ovelsesSett = tx.getInputString();
+		int ovelsesSett = tx.getMenuSelection(0, 1000);
 		boolean createdOvelse = initOvelse(ovelsesNavn);
 		if (createdOvelse)
 		{
 			try
 			{
-				
+				List<Apparat> apList = ApparatService.getAllApparat();
+				int choice = ApparatScreen.getApparatByNumber(apList);
+				Apparatovelse apo = new Apparatovelse(OvelseService.getMaxOvelsesID(), ovelsesKilo, ovelsesSett, apList.get(choice));
+				// ApparatovelseService // TODO create method to create ApparatOvelse in Service
 			}
 			catch (Exception e)
 			{
