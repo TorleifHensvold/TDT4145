@@ -3,6 +3,7 @@ package database.service;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
 import table.Ovelse;
 
 
@@ -84,5 +85,27 @@ public class OvelseService
 		rs.close();
 		return listOfOvelse;
 		
+	}
+	
+	public static int getMaxOvelsesID() throws SQLException
+	{
+		Connection conn = DatabaseService.getDatasource().getConnection();
+		PreparedStatement prepState = conn.prepareStatement("SELECT MAX(ovelse.OvelseID) FROM ovelse");
+		ResultSet rs = prepState.executeQuery();
+		rs.first();
+		int max = rs.getInt(1);
+		return max;
+	}
+	
+	public static String ovelseListeToString(List<Ovelse> liste)
+	{
+		
+		String str = String.format("%-5s", "ØvelsesID") + String.format("|%-30s", "Navn") + "\n"
+				+ "________________________________________________________________________\n";
+		for (int i = 0; i < liste.size(); i++)
+		{
+			str += liste.get(i).toString() + "\n";
+		}
+		return str;
 	}
 }
