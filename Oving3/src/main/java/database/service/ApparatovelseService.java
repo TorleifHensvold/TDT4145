@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +56,15 @@ public class ApparatovelseService {
 		prepState.setInt(3, apo.getAntallSett());
 		prepState.setString(4, apo.getApparat().getNavn());
 		prepState.executeUpdate();
+		conn.close();
+	}
+	
+	public static void deleteApparatOvelse(Apparatovelse apo) throws Exception
+	{
+		Connection conn = DatabaseService.getDatasource().getConnection();
+		PreparedStatement prepState = conn.prepareStatement("DELETE * FROM apparatovelse WHERE OvelsesID = ?");
+		prepState.setInt(1, apo.getOvelsesID());
+		OvelseService.deleteOvelseByID(apo.getOvelsesID());
 		conn.close();
 	}
 }
