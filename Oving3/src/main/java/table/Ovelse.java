@@ -63,5 +63,12 @@ public class Ovelse
 			throw new IllegalArgumentException("The name is too long");
 		}
 	}
-
+	
+	public String toString()
+	{
+		String str = "";
+		str += String.format("%-30s", this.ovelsesID);
+		str += String.format("|%-100s", this.navn);
+		return str;
+	}
 }
