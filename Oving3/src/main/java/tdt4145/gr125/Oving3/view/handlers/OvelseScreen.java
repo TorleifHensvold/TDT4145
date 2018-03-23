@@ -142,7 +142,7 @@ public class OvelseScreen
 			try
 			{
 				List<Apparat> apList = ApparatService.getAllApparat();
-				int choice = ApparatScreen.getApparatByNumber(apList);
+				int choice = ApparatScreen.getApparatByNumber(apList, tx);
 				Apparatovelse apo = new Apparatovelse(OvelseService.getMaxOvelsesID(), ovelsesKilo, ovelsesSett, apList.get(choice));
 				// ApparatovelseService // TODO create method to create ApparatOvelse in Service
 			}

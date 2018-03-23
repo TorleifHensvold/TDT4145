@@ -121,7 +121,7 @@ public class ApparatScreen
 
 	}
 	
-	protected int getApparatByNumber(List<Apparat> apList) throws Exception
+	public static int getApparatByNumber(List<Apparat> apList, TextInterface tx) throws Exception
 	{
 		for (int i = 0; i < apList.size(); i++)
 		{
