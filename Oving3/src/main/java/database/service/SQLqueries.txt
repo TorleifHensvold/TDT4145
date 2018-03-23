@@ -23,7 +23,11 @@ from	(	(	(treningsokt join inneholder on treningsokt.OktID=inneholder.OktID)
 		join utenapparat on utenapparat.OvelsesID = ovelse.OvelsesID)
 where	ovelse.Navn = "..." and treningsokt.Dato <= "high" and treningsokt.Dato >= "low"
 
-
+select `dato`, `tidspunkt`, `beskrivelse`, `navn` 
+from(((`treningsokt` JOIN `inneholder` ON `treningsokt`.`OktID`=`inneholder`.`OktID`) 
+join `ovelse` on `inneholder`.`OvelsesID` = `ovelse`.`OvelsesID`) 
+join `utenapparat` on `utenapparat`.`OvelsesID` = `ovelse`.`OvelsesID`) 
+where `ovelse`.`Navn` = "Testvalue 4" and `treningsokt`.`Dato` <= "20190101" and `treningsokt`.`Dato` >= "20170101"
 
 #Resultatlogg i gitt tidsintervall spesifisert av brukeren (hvis apparat)
 select treningsokt.Dato, apparatOvelse.AntallKilo, ApparatOvelse.AntallSet
@@ -32,7 +36,7 @@ from	(	(	(treningsokt join inneholder on treningsokt.OktID=inneholder.OktID)
 		join apparat on apparat.OvelsesID = ovelse.OvelsesID)
 where	ovelse.Navn = "..." and treningsokt.Dato <= "high" and treningsokt.Dato >= "low"
 
-
+select `dato`, `tidspunkt`, `navn`, `antallkilo`, `antallsett` from(((`treningsokt` JOIN `inneholder` ON `treningsokt`.`OktID`=`inneholder`.`OktID`) join `ovelse` on `inneholder`.`OvelsesID` = `ovelse`.`OvelsesID`) join `apparatovelse` on `apparatovelse`.`OvelsesID` = `ovelse`.`OvelsesID`)
 
 #Finner øvelser i samme gruppe
 select ovelse.Navn, ovelse.OvelsesID
