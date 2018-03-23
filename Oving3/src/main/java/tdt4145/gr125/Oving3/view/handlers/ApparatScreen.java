@@ -1,6 +1,7 @@
 
 package tdt4145.gr125.Oving3.view.handlers;
 
+import java.util.List;
 import java.util.Scanner;
 
 import database.service.ApparatService;
@@ -44,12 +45,12 @@ public class ApparatScreen
 
 	private void viewApparat()
 	{
-		System.out.println("into viewApparat");
+	//	System.out.println("into viewApparat");
 		while (true)
 		{
 			printViewApparatMenu();
 			int menuSelected = tx.getMenuSelection(0, 1);
-			System.out.println("out of getMenuSelection");
+		//	System.out.println("out of getMenuSelection");
 			switch (menuSelected)
 			{
 			case 0:
@@ -118,5 +119,15 @@ public class ApparatScreen
 		String menuName = "------OpprettApparatMenu------";
 		tx.printMenu(menuName, opprettApparatOptions);
 
+	}
+	
+	protected int getApparatByNumber() throws Exception
+	{
+		List<Apparat> apList = ApparatService.getAllApparat();
+		for (int i = 0; i < apList.size(); i++)
+		{
+			System.out.println(String.format("%5", "[" + i + "] ") + apList.get(i).toString() + "\n");
+		}
+		return tx.getMenuSelection(0, apList.size());
 	}
 }
