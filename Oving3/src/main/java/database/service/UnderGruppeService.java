@@ -7,7 +7,6 @@ import table.Undergruppe;
 public class UnderGruppeService {
 	
 	
-	
 	public static boolean createRelation(Undergruppe gruppe) {
 		try {
 			Connection conn = DatabaseService.getDatasource().getConnection();
