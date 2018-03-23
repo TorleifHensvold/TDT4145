@@ -51,12 +51,12 @@ public class Treningsokt
 	
 	public int getForm() 
 	{
-		return this.form;
+		return this.form.intValue();
 	}
 	
 	public int getPrestasjon() 
 	{
-		return this.prestasjon;
+		return this.prestasjon.intValue();
 	}
 	
 	public String getNotat() 
@@ -96,7 +96,7 @@ public class Treningsokt
 		}
 	}
 	
-	private void setForm(int form)  throws Exception
+	private void setForm(Integer form)  throws Exception
 	{
 		if (checkInt(oktID, true))
 		{
@@ -104,7 +104,7 @@ public class Treningsokt
 		}
 	}
 	
-	private void setPrestasjon(int prestasjon)  throws Exception
+	private void setPrestasjon(Integer prestasjon)  throws Exception
 	{
 		if (checkInt(oktID, true))
 		{
