@@ -45,4 +45,13 @@ public class Apparat {
 	public String getBeskrivelse() {
 		return this.Beskrivelse;
 	}
+	
+	public String toString() 
+	{
+		String str = "";
+		str += String.format("%-30s", this.Navn);
+		str += String.format("|%-100s", this.Beskrivelse);
+		return str;
+	}
+	
 }
