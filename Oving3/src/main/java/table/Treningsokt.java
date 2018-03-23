@@ -12,7 +12,7 @@ public class Treningsokt
 	
 	
 	public Treningsokt(int oktID, String dato, String tidspunkt, 
-			int varighet, int form, int prestasjon, String notat) throws Exception
+			int varighet, Integer form, Integer prestasjon, String notat) throws Exception
 	{
 		setOktID(oktID);
 		setDato(dato);
