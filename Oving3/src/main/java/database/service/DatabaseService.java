@@ -27,7 +27,7 @@ public class DatabaseService {
         dataSource.setServerName(DataBaseSettings.databaseServer);
         dataSource.setDatabaseName(DataBaseSettings.databaseName);
         dataSource.setUser(DataBaseSettings.databaseUsername);
-        dataSource.setPassword(DataBaseSettings.databaseSPassword);
+        dataSource.setPassword(DataBaseSettings.databasePassword);
 
         return dataSource;
     }
